@@ -1,0 +1,1989 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="dark scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أسرار العقل والذاكرة القوية | ادرس بذكاء وليس بجهد</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Cairo & Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        arabic: ['Cairo', 'sans-serif'],
+                        english: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#eef2ff',
+                            100: '#e0e7ff',
+                            400: '#818cf8',
+                            500: '#6366f1',
+                            600: '#4f46e5',
+                            700: '#4338ca',
+                            900: '#1e1b4b',
+                        },
+                        accent: {
+                            400: '#34d399',
+                            500: '#10b981',
+                            600: '#059669',
+                        }
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float': 'float 5s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Cairo', 'Plus Jakarta Sans', sans-serif;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        html[lang="en"] body {
+            font-family: 'Plus Jakarta Sans', 'Cairo', sans-serif;
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: rgba(15, 23, 42, 0.1);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, #6366f1, #10b981);
+            border-radius: 9999px;
+        }
+        /* Glassmorphism utilities */
+        .glass-card {
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+        }
+        /* Breathing Circle Transition */
+        .breath-circle {
+            transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 1s ease, background-color 1s ease;
+        }
+        /* Vault Lock Animation */
+        .vault-locked {
+            filter: blur(5px);
+            pointer-events: none;
+            user-select: none;
+            transition: all 0.5s ease;
+        }
+        /* Range Slider Styling */
+        input[type=range] {
+            accent-color: #6366f1;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 min-h-screen selection:bg-indigo-500 selection:text-white overflow-x-hidden">
+
+    <!-- Ambient Background Glows -->
+    <div class="fixed inset-0 pointer-events-none overflow-hidden z-0">
+        <div class="absolute -top-40 -right-40 w-96 h-96 bg-indigo-500/15 dark:bg-indigo-500/10 rounded-full blur-3xl"></div>
+        <div class="absolute top-1/3 -left-40 w-96 h-96 bg-emerald-500/15 dark:bg-emerald-500/10 rounded-full blur-3xl"></div>
+        <div class="absolute -bottom-40 right-1/4 w-96 h-96 bg-purple-500/15 dark:bg-purple-500/10 rounded-full blur-3xl"></div>
+    </div>
+
+    <!-- Custom Toast Notification Container -->
+    <div id="toast-container" class="fixed bottom-6 left-6 z-50 flex flex-col gap-2 max-w-sm"></div>
+
+    <!-- Sticky Header / Navbar -->
+    <header class="sticky top-0 z-40 glass-card bg-white/80 dark:bg-slate-900/80 border-b border-slate-200/80 dark:border-slate-800/80 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-3">
+            <!-- Brand Logo -->
+            <a href="#hero" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-600 to-emerald-500 flex items-center justify-center text-white shadow-lg shadow-indigo-500/25 group-hover:scale-105 transition-transform">
+                    <i class="fa-solid fa-brain text-lg"></i>
+                </div>
+                <div>
+                    <h1 id="nav-title" class="font-extrabold text-base sm:text-lg bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-emerald-500 dark:from-indigo-400 dark:to-emerald-400 leading-tight">
+                        ادرس بذكاء وليس بجهد
+                    </h1>
+                    <p id="nav-subtitle" class="text-xs text-slate-500 dark:text-slate-400 hidden sm:block">
+                        أسرار العقل والذاكرة القوية
+                    </p>
+                </div>
+            </a>
+
+            <!-- Quick Section Links (Desktop) -->
+            <nav class="hidden lg:flex items-center gap-1 text-sm font-semibold text-slate-600 dark:text-slate-300">
+                <a href="#brains-section" class="px-3 py-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" data-i18n="nav_brains">العقول الثلاثة</a>
+                <a href="#alpha-section" class="px-3 py-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" data-i18n="nav_alpha">موجات ألفا</a>
+                <a href="#vak-section" class="px-3 py-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" data-i18n="nav_vak">أنماط التعلم</a>
+                <a href="#memory-section" class="px-3 py-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" data-i18n="nav_memory">تقنيات الذاكرة 4</a>
+                <a href="#timer-section" class="px-3 py-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" data-i18n="nav_timer">البدايات والنهايات</a>
+                <a href="#worry-section" class="px-3 py-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" data-i18n="nav_worry">قائمة القلق</a>
+            </nav>
+
+            <!-- Action Controls: Language & Dark Mode -->
+            <div class="flex items-center gap-2">
+                <!-- Mastery Progress Pill -->
+                <div class="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-xl bg-indigo-50 dark:bg-indigo-950/60 border border-indigo-200/60 dark:border-indigo-800/60 text-xs font-bold text-indigo-700 dark:text-indigo-300">
+                    <i class="fa-solid fa-bolt text-amber-500"></i>
+                    <span data-i18n="mastery_label">جاهزية التعلم:</span>
+                    <span id="global-score-badge">85%</span>
+                </div>
+
+                <!-- Language Switcher Button -->
+                <button id="lang-toggle-btn" onclick="toggleLanguage()" class="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-100 font-bold text-xs sm:text-sm transition-all border border-slate-200/80 dark:border-slate-700 shadow-sm active:scale-95" title="Switch Language / تبديل اللغة">
+                    <i class="fa-solid fa-globe text-indigo-500"></i>
+                    <span id="lang-btn-text">English</span>
+                </button>
+
+                <!-- Theme Toggle Button -->
+                <button id="theme-toggle-btn" onclick="toggleTheme()" class="w-10 h-10 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 flex items-center justify-center text-slate-700 dark:text-amber-400 transition-all border border-slate-200/80 dark:border-slate-700 shadow-sm active:scale-95" title="Toggle Dark/Light Mode">
+                    <i id="theme-icon" class="fa-solid fa-sun text-base"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 space-y-16 sm:space-y-24">
+
+        <!-- ==========================================
+             1. HERO SECTION & SMART STUDY CALCULATOR
+             ========================================== -->
+        <section id="hero" class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            <!-- Hero Text Column -->
+            <div class="lg:col-span-7 space-y-6">
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-500/10 dark:bg-indigo-500/20 border border-indigo-500/30 text-indigo-600 dark:text-indigo-300 text-xs sm:text-sm font-bold">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
+                    <span data-i18n="hero_badge">ملخص تفاعلي لكتاب كيفن بول (Study Smarter, Not Harder)</span>
+                </div>
+
+                <h2 class="text-3xl sm:text-5xl font-black tracking-tight leading-tight text-slate-900 dark:text-white">
+                    <span data-i18n="hero_title_1">أسرار العقل</span>
+                    <span class="bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 via-purple-500 to-emerald-500 dark:from-indigo-400 dark:via-purple-400 dark:to-emerald-400" data-i18n="hero_title_2">والذاكرة القوية</span>
+                </h2>
+
+                <p class="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed" data-i18n="hero_desc">
+                    هل تقضي ساعات طويلة أمام الكتب ثم تتبخر المعلومات في قاعة الامتحان؟ المشكلة ليست في قدرات عقلك، بل في أنك لم تتعلم "كيف تتعلم". اكتشف كيف تضاعف استيعابك مرتين في نصف الوقت عبر فهم أسرار دماغك.
+                </p>
+
+                <!-- Key Video Pillars Pills -->
+                <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2">
+                    <div class="p-3.5 rounded-2xl bg-white dark:bg-slate-900/90 border border-slate-200/80 dark:border-slate-800 shadow-sm flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-500 flex items-center justify-center shrink-0">
+                            <i class="fa-solid fa-gauge-high text-lg"></i>
+                        </div>
+                        <div>
+                            <div class="text-lg font-extrabold text-slate-900 dark:text-white" data-i18n="stat_1_val">2X استيعاب</div>
+                            <div class="text-xs text-slate-500 dark:text-slate-400" data-i18n="stat_1_lbl">في نصف الوقت</div>
+                        </div>
+                    </div>
+
+                    <div class="p-3.5 rounded-2xl bg-white dark:bg-slate-900/90 border border-slate-200/80 dark:border-slate-800 shadow-sm flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-indigo-500/10 text-indigo-500 flex items-center justify-center shrink-0">
+                            <i class="fa-solid fa-lungs text-lg"></i>
+                        </div>
+                        <div>
+                            <div class="text-lg font-extrabold text-slate-900 dark:text-white" data-i18n="stat_2_val">20% أكسجين</div>
+                            <div class="text-xs text-slate-500 dark:text-slate-400" data-i18n="stat_2_lbl">وقود العقل وموجات ألفا</div>
+                        </div>
+                    </div>
+
+                    <div class="col-span-2 sm:col-span-1 p-3.5 rounded-2xl bg-white dark:bg-slate-900/90 border border-slate-200/80 dark:border-slate-800 shadow-sm flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-500 flex items-center justify-center shrink-0">
+                            <i class="fa-solid fa-layer-group text-lg"></i>
+                        </div>
+                        <div>
+                            <div class="text-lg font-extrabold text-slate-900 dark:text-white" data-i18n="stat_3_val">4 تقنيات</div>
+                            <div class="text-xs text-slate-500 dark:text-slate-400" data-i18n="stat_3_lbl">لذاكرة حديدية دائمة</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hero CTA Buttons -->
+                <div class="flex flex-wrap items-center gap-3 pt-2">
+                    <a href="#brains-section" class="px-6 py-3.5 rounded-2xl bg-gradient-to-r from-indigo-600 to-emerald-600 hover:from-indigo-500 hover:to-emerald-500 text-white font-bold text-sm sm:text-base shadow-lg shadow-indigo-500/25 flex items-center gap-2.5 transition-all hover:-translate-y-0.5">
+                        <i class="fa-solid fa-rocket"></i>
+                        <span data-i18n="btn_start_journey">ابدأ الرحلة التفاعلية</span>
+                    </a>
+                    <a href="https://youtu.be/DLy01j1oxwM?si=pbpbD-7TPaB4ek94" target="_blank" rel="noopener noreferrer" class="px-5 py-3.5 rounded-2xl bg-white dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-800 dark:text-slate-200 border border-slate-200 dark:border-slate-700 font-bold text-sm sm:text-base flex items-center gap-2.5 transition-all shadow-sm">
+                        <i class="fa-brands fa-youtube text-red-500 text-xl"></i>
+                        <span data-i18n="btn_watch_video">مشاهدة الفيديو الأصلي</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Interactive Study Efficiency Simulator Card -->
+            <div class="lg:col-span-5">
+                <div class="rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 p-6 sm:p-7 shadow-xl relative overflow-hidden">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="flex items-center gap-2.5">
+                            <span class="w-9 h-9 rounded-xl bg-indigo-500/10 text-indigo-500 flex items-center justify-center">
+                                <i class="fa-solid fa-sliders"></i>
+                            </span>
+                            <div>
+                                <h3 class="font-bold text-base sm:text-lg text-slate-900 dark:text-white" data-i18n="sim_title">محاكي: المذاكرة بجهد vs بذكاء</h3>
+                                <p class="text-xs text-slate-500 dark:text-slate-400" data-i18n="sim_subtitle">حرك المؤشر لترى الفرق في الوقت والتذكر</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slider Input -->
+                    <div class="mb-6 bg-slate-50 dark:bg-slate-800/60 p-4 rounded-2xl border border-slate-200/60 dark:border-slate-700/60">
+                        <div class="flex justify-between text-xs sm:text-sm font-bold mb-2">
+                            <span class="text-slate-600 dark:text-slate-300" data-i18n="sim_slider_label">ساعات المذاكرة التقليدية يومياً:</span>
+                            <span id="sim-hours-display" class="text-indigo-600 dark:text-indigo-400 text-base">6 ساعات</span>
+                        </div>
+                        <input id="sim-hours-slider" type="range" min="2" max="10" step="1" value="6" oninput="updateStudySimulator()" class="w-full h-2 bg-slate-200 dark:bg-slate-700 rounded-lg cursor-pointer">
+                        <div class="flex justify-between text-[11px] text-slate-400 mt-1">
+                            <span>2h</span>
+                            <span>4h</span>
+                            <span>6h</span>
+                            <span>8h</span>
+                            <span>10h</span>
+                        </div>
+                    </div>
+
+                    <!-- Side-by-Side Comparison -->
+                    <div class="grid grid-cols-2 gap-3.5">
+                        <!-- Hard / Traditional Box -->
+                        <div class="p-4 rounded-2xl bg-rose-50/70 dark:bg-rose-950/30 border border-rose-200/70 dark:border-rose-800/60 space-y-3">
+                            <div class="flex items-center gap-2 text-rose-600 dark:text-rose-400 font-bold text-xs sm:text-sm">
+                                <i class="fa-solid fa-battery-quarter"></i>
+                                <span data-i18n="sim_hard_title">بجهد تقليدي (حفظ صم)</span>
+                            </div>
+                            <div>
+                                <div class="text-xs text-slate-500 dark:text-slate-400" data-i18n="sim_time_spent">الوقت المستغرق:</div>
+                                <div id="sim-hard-time" class="text-xl font-black text-rose-600 dark:text-rose-400">6 ساعات متواصلة</div>
+                            </div>
+                            <div>
+                                <div class="text-xs text-slate-500 dark:text-slate-400" data-i18n="sim_retention">نسبة التذكر بالامتحان:</div>
+                                <div class="w-full h-2 bg-rose-200 dark:bg-rose-900/60 rounded-full overflow-hidden mt-1">
+                                    <div id="sim-hard-bar" class="h-full bg-rose-500 rounded-full transition-all duration-300" style="width: 28%"></div>
+                                </div>
+                                <div id="sim-hard-ret" class="text-xs font-bold text-rose-600 dark:text-rose-400 mt-1">~25% (نسيان وتوتر)</div>
+                            </div>
+                        </div>
+
+                        <!-- Smart Method Box -->
+                        <div class="p-4 rounded-2xl bg-emerald-50/70 dark:bg-emerald-950/30 border border-emerald-200/70 dark:border-emerald-800/60 space-y-3">
+                            <div class="flex items-center gap-2 text-emerald-600 dark:text-emerald-400 font-bold text-xs sm:text-sm">
+                                <i class="fa-solid fa-wand-magic-sparkles"></i>
+                                <span data-i18n="sim_smart_title">بذكاء (تقنيات الكتاب)</span>
+                            </div>
+                            <div>
+                                <div class="text-xs text-slate-500 dark:text-slate-400" data-i18n="sim_time_spent">الوقت المستغرق:</div>
+                                <div id="sim-smart-time" class="text-xl font-black text-emerald-600 dark:text-emerald-400">3 ساعات فقط!</div>
+                            </div>
+                            <div>
+                                <div class="text-xs text-slate-500 dark:text-slate-400" data-i18n="sim_retention">نسبة التذكر بالامتحان:</div>
+                                <div class="w-full h-2 bg-emerald-200 dark:bg-emerald-900/60 rounded-full overflow-hidden mt-1">
+                                    <div id="sim-smart-bar" class="h-full bg-emerald-500 rounded-full transition-all duration-300" style="width: 90%"></div>
+                                </div>
+                                <div id="sim-smart-ret" class="text-xs font-bold text-emerald-600 dark:text-emerald-400 mt-1">~90% (استيعاب مضاعف)</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Weekly Time Saved Banner -->
+                    <div class="mt-4 p-3.5 rounded-2xl bg-gradient-to-r from-indigo-500/10 to-emerald-500/10 border border-indigo-500/20 flex items-center justify-between">
+                        <span class="text-xs sm:text-sm font-semibold text-slate-700 dark:text-slate-200" data-i18n="sim_weekly_saved_lbl">وقت حر توفره أسبوعياً مع تفوق أعلى:</span>
+                        <span id="sim-weekly-saved" class="px-3 py-1 rounded-xl bg-emerald-500 text-white font-extrabold text-xs sm:text-sm shadow">21 ساعة / أسبوع</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             2. THE TRIUNE BRAIN (العقول الثلاثة داخل رأسك)
+             ========================================== -->
+        <section id="brains-section" class="space-y-8 scroll-mt-20">
+            <div class="text-center max-w-3xl mx-auto space-y-3">
+                <span class="px-3.5 py-1 rounded-full bg-purple-500/10 text-purple-600 dark:text-purple-400 text-xs font-bold border border-purple-500/20" data-i18n="sec2_badge">السر الأول من الفيديو</span>
+                <h2 class="text-2xl sm:text-4xl font-black text-slate-900 dark:text-white" data-i18n="sec2_title">داخل رأسك ثلاثة عقول.. كيف تجعلها تعمل لصالحك؟</h2>
+                <p class="text-sm sm:text-base text-slate-600 dark:text-slate-400" data-i18n="sec2_desc">
+                    ينقسم الدماغ البشري وظيفياً إلى 3 مستويات مترابطة. عندما تخاف من الامتحان أو تكره المادة، يتوقف عقلك المفكر عن العمل! اضغط على كل عقل لاكتشاف دوره واختبر حالة دماغك الآن.
+                </p>
+            </div>
+
+            <!-- 3 Brains Interactive Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Brain 1: Reptilian Brain -->
+                <div onclick="selectBrainCard(1)" id="brain-card-1" class="cursor-pointer group rounded-3xl p-6 bg-white dark:bg-slate-900 border-2 border-rose-500/40 dark:border-rose-500/40 shadow-lg hover:shadow-xl transition-all relative overflow-hidden">
+                    <div class="w-12 h-12 rounded-2xl bg-rose-500/15 text-rose-500 flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <div class="inline-block px-2.5 py-0.5 rounded-md bg-rose-500/10 text-rose-600 dark:text-rose-400 text-xs font-bold mb-2" data-i18n="brain1_tag">1. العقل الأول (البقاء والأمان)</div>
+                    <h3 class="text-xl font-extrabold text-slate-900 dark:text-white mb-2" data-i18n="brain1_name">العقل الزاحف (Reptilian Brain)</h3>
+                    <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4" data-i18n="brain1_desc">
+                        مسؤول عن الوظائف اللاإرادية كالتنفس وضربات القلب والدفاع عن النفس. عندما تشعر بالخوف أو التوتر الشديد من الامتحان، يسيطر هذا العقل ويعلن حالة الطوارئ فيغلق "العقل المفكر" تماماً!
+                    </p>
+                    <div class="p-3 rounded-xl bg-rose-50 dark:bg-rose-950/40 border border-rose-200/60 dark:border-rose-800/50 text-xs text-rose-700 dark:text-rose-300 font-semibold flex items-start gap-2">
+                        <i class="fa-solid fa-key mt-0.5"></i>
+                        <span data-i18n="brain1_tip">الحل الذكي: طمئن عقلك بالتنفس العميق والهدوء قبل فتح الكتاب.</span>
+                    </div>
+                </div>
+
+                <!-- Brain 2: Limbic / Emotional Brain -->
+                <div onclick="selectBrainCard(2)" id="brain-card-2" class="cursor-pointer group rounded-3xl p-6 bg-white dark:bg-slate-900 border-2 border-amber-500/40 dark:border-amber-500/40 shadow-lg hover:shadow-xl transition-all relative overflow-hidden">
+                    <div class="w-12 h-12 rounded-2xl bg-amber-500/15 text-amber-500 flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-heart-pulse"></i>
+                    </div>
+                    <div class="inline-block px-2.5 py-0.5 rounded-md bg-amber-500/10 text-amber-600 dark:text-amber-400 text-xs font-bold mb-2" data-i18n="brain2_tag">2. العقل الثاني (المشاعر والروابط)</div>
+                    <h3 class="text-xl font-extrabold text-slate-900 dark:text-white mb-2" data-i18n="brain2_name">العقل العاطفي (Limbic System)</h3>
+                    <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4" data-i18n="brain2_desc">
+                        مسؤول عن العواطف والمشاعر، وهو البوابة للذاكرة طويلة المدى! لهذا تتذكر بسهولة كلمات أغنية تحبها، بينما تنسى مادة تكرهها أو تكره أستاذها لأن العقل العاطفي يرفض تمريرها.
+                    </p>
+                    <div class="p-3 rounded-xl bg-amber-50 dark:bg-amber-950/40 border border-amber-200/60 dark:border-amber-800/50 text-xs text-amber-700 dark:text-amber-300 font-semibold flex items-start gap-2">
+                        <i class="fa-solid fa-key mt-0.5"></i>
+                        <span data-i18n="brain2_tip">الحل الذكي: اربط المادة بمشاعر إيجابية، فضول، أو مكافأة بعد الإنجاز.</span>
+                    </div>
+                </div>
+
+                <!-- Brain 3: Neocortex / Thinking Brain -->
+                <div onclick="selectBrainCard(3)" id="brain-card-3" class="cursor-pointer group rounded-3xl p-6 bg-white dark:bg-slate-900 border-2 border-emerald-500/40 dark:border-emerald-500/40 shadow-lg hover:shadow-xl transition-all relative overflow-hidden">
+                    <div class="w-12 h-12 rounded-2xl bg-emerald-500/15 text-emerald-500 flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-microchip"></i>
+                    </div>
+                    <div class="inline-block px-2.5 py-0.5 rounded-md bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-xs font-bold mb-2" data-i18n="brain3_tag">3. العقل الثالث (التحليل والمنطق)</div>
+                    <h3 class="text-xl font-extrabold text-slate-900 dark:text-white mb-2" data-i18n="brain3_name">القشرة المخية (Neocortex)</h3>
+                    <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4" data-i18n="brain3_desc">
+                        هو العقل المفكر الواعي المسؤول عن المنطق، التحليل، الاستنتاج، وحل المسائل والمذاكرة. لا يعمل بكامل طاقته إلا عندما يشعر العقل الزاحف بالأمان والعقل العاطفي بالحماس!
+                    </p>
+                    <div class="p-3 rounded-xl bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200/60 dark:border-emerald-800/50 text-xs text-emerald-700 dark:text-emerald-300 font-semibold flex items-start gap-2">
+                        <i class="fa-solid fa-key mt-0.5"></i>
+                        <span data-i18n="brain3_tip">النتيجة: عندما تتناغم العقول الثلاثة تصبح قدرتك على الحفظ والفهم خارقة!</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Interactive Brain Harmony Diagnostic Tool -->
+            <div class="rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-lg">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+                    <div class="lg:col-span-5 space-y-3">
+                        <h4 class="text-lg sm:text-xl font-extrabold text-slate-900 dark:text-white flex items-center gap-2">
+                            <i class="fa-solid fa-stethoscope text-indigo-500"></i>
+                            <span data-i18n="diag_title">مُشخّص تناغم العقول الثلاثة قبل المذاكرة</span>
+                        </h4>
+                        <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400" data-i18n="diag_subtitle">
+                            اختر حالتك الشعورية الحالية لترى أي عقل يسيطر عليك الآن وكيف تفتح بوابة القشرة المخية:
+                        </p>
+                        <div class="flex flex-col gap-2.5 pt-1">
+                            <button onclick="setBrainState('panic')" id="state-btn-panic" class="text-start px-4 py-3 rounded-2xl border border-slate-200 dark:border-slate-700 hover:border-rose-500 dark:hover:border-rose-500 transition-all flex items-center justify-between text-xs sm:text-sm font-bold">
+                                <span data-i18n="state_panic_btn">😰 مضغوط وخائف من ضيق الوقت والامتحان</span>
+                                <i class="fa-solid fa-chevron-left text-xs opacity-60"></i>
+                            </button>
+                            <button onclick="setBrainState('bored')" id="state-btn-bored" class="text-start px-4 py-3 rounded-2xl border border-slate-200 dark:border-slate-700 hover:border-amber-500 dark:hover:border-amber-500 transition-all flex items-center justify-between text-xs sm:text-sm font-bold">
+                                <span data-i18n="state_bored_btn">😒 أشعر بالملل وأكره هذه المادة الدراسية</span>
+                                <i class="fa-solid fa-chevron-left text-xs opacity-60"></i>
+                            </button>
+                            <button onclick="setBrainState('harmony')" id="state-btn-harmony" class="text-start px-4 py-3 rounded-2xl border-2 border-emerald-500 bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 transition-all flex items-center justify-between text-xs sm:text-sm font-bold">
+                                <span data-i18n="state_harmony_btn">✨ هادئ، أتنفس بعمق، ولدي هدف واضح</span>
+                                <i class="fa-solid fa-check-circle text-emerald-500"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Diagnostic Output & Bars -->
+                    <div class="lg:col-span-7 bg-slate-50 dark:bg-slate-800/60 rounded-2xl p-5 sm:p-6 border border-slate-200/70 dark:border-slate-700/70 space-y-4">
+                        <div class="space-y-3">
+                            <div>
+                                <div class="flex justify-between text-xs font-bold mb-1">
+                                    <span data-i18n="bar_reptilian">سيطرة العقل الزاحف (الخوف والتوتر)</span>
+                                    <span id="val-reptilian" class="text-rose-500">15%</span>
+                                </div>
+                                <div class="w-full h-2.5 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
+                                    <div id="bar-reptilian" class="h-full bg-rose-500 transition-all duration-500" style="width: 15%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-xs font-bold mb-1">
+                                    <span data-i18n="bar_limbic">تفاعل العقل العاطفي (الحماس والارتباط)</span>
+                                    <span id="val-limbic" class="text-amber-500">90%</span>
+                                </div>
+                                <div class="w-full h-2.5 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
+                                    <div id="bar-limbic" class="h-full bg-amber-500 transition-all duration-500" style="width: 90%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-xs font-bold mb-1">
+                                    <span data-i18n="bar_neocortex">كفاءة القشرة المخية (الاستيعاب والذاكرة)</span>
+                                    <span id="val-neocortex" class="text-emerald-500">95%</span>
+                                </div>
+                                <div class="w-full h-2.5 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
+                                    <div id="bar-neocortex" class="h-full bg-emerald-500 transition-all duration-500" style="width: 95%"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="diag-advice-box" class="p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-slate-800 dark:text-slate-100 text-xs sm:text-sm font-semibold leading-relaxed">
+                            <!-- Filled dynamically by JS -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             3. ALPHA WAVES & DEEP BREATHING + ENVIRONMENT CHECKLIST
+             ========================================== -->
+        <section id="alpha-section" class="space-y-8 scroll-mt-20">
+            <div class="text-center max-w-3xl mx-auto space-y-3">
+                <span class="px-3.5 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-xs font-bold border border-emerald-500/20" data-i18n="sec3_badge">السر الثاني: الحالة الذهبية للتعلم</span>
+                <h2 class="text-2xl sm:text-4xl font-black text-slate-900 dark:text-white" data-i18n="sec3_title">موجات ألفا (اليقظة المسترخية) وتجهيز بيئة المذاكرة</h2>
+                <p class="text-sm sm:text-base text-slate-600 dark:text-slate-400" data-i18n="sec3_desc">
+                    يستهلك عقلك 20% من أكسجين جسمك! أفضل حالة للتعلم السريع هي "اليقظة المسترخية" حيث يعمل الدماغ على (موجات ألفا): جسم هادئ ومسترخٍ + عقل منتبه ومركّز.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                <!-- Interactive Deep Breathing Alpha Trainer -->
+                <div class="lg:col-span-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-lg flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-lg sm:text-xl font-extrabold text-slate-900 dark:text-white flex items-center gap-2">
+                                <i class="fa-solid fa-wind text-emerald-500"></i>
+                                <span data-i18n="breath_title">مدرب التنفس العميق لتفعيل موجات ألفا</span>
+                            </h3>
+                            <span id="breath-cycle-badge" class="px-3 py-1 rounded-full bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 text-xs font-bold">0 / 3 دورات</span>
+                        </div>
+                        <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mb-6" data-i18n="breath_desc">
+                            خذ 3 أنفاس عميقة قبل بدء المذاكرة لتزويد الدماغ بالأكسجين، تهدئة العقل الزاحف، والدخول فوراً في موجات ألفا الذهبية.
+                        </p>
+                    </div>
+
+                    <!-- Animated Breathing Visualizer -->
+                    <div class="my-6 flex flex-col items-center justify-center relative py-6">
+                        <div id="breath-outer-ring" class="w-44 h-44 sm:w-52 sm:h-52 rounded-full border-2 border-dashed border-indigo-400/40 flex items-center justify-center">
+                            <div id="breath-circle" class="breath-circle w-28 h-28 sm:w-32 sm:h-32 rounded-full bg-gradient-to-br from-indigo-500 to-emerald-500 flex flex-col items-center justify-center text-white shadow-xl shadow-indigo-500/30 text-center p-3">
+                                <span id="breath-status-text" class="font-extrabold text-sm sm:text-base" data-i18n="breath_ready">اضغط للبدء</span>
+                                <span id="breath-timer-num" class="text-xs opacity-80 mt-0.5">4-4-6</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center justify-center gap-3">
+                        <button id="breath-btn" onclick="toggleBreathingExercise()" class="px-6 py-3 rounded-2xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-sm shadow-lg shadow-indigo-500/25 flex items-center gap-2 transition-all">
+                            <i id="breath-btn-icon" class="fa-solid fa-play"></i>
+                            <span id="breath-btn-label" data-i18n="breath_start_btn">ابدأ تمرين التنفس (ألفا)</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Interactive Pre-Study Environment Checklist -->
+                <div class="lg:col-span-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-lg flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <h3 class="text-lg sm:text-xl font-extrabold text-slate-900 dark:text-white flex items-center gap-2">
+                                <i class="fa-solid fa-list-check text-indigo-500"></i>
+                                <span data-i18n="env_title">قائمة فحص بيئة المذاكرة المثالية</span>
+                            </h3>
+                            <span id="env-score-text" class="text-sm font-black text-emerald-500">0%</span>
+                        </div>
+                        <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mb-4" data-i18n="env_desc">
+                            تأكد من تطبيق هذه الشروط الخمسة التي ذكرها الفيديو قبل فتح أي كتاب لتهيئة عقلك للتركيز العميق:
+                        </p>
+
+                        <!-- Progress Bar -->
+                        <div class="w-full h-2.5 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden mb-5">
+                            <div id="env-progress-bar" class="h-full bg-gradient-to-r from-indigo-500 to-emerald-500 transition-all duration-300" style="width: 0%"></div>
+                        </div>
+
+                        <!-- Checklist Items -->
+                        <div class="space-y-2.5" id="env-checklist-container">
+                            <label class="flex items-center gap-3 p-3 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/70 dark:border-slate-700/60 cursor-pointer hover:border-indigo-400 transition-all">
+                                <input type="checkbox" onchange="updateEnvChecklist()" class="env-check w-5 h-5 rounded text-indigo-600 focus:ring-indigo-500">
+                                <span class="text-xs sm:text-sm font-semibold text-slate-800 dark:text-slate-200" data-i18n="env_item_1">١. مكان مخصص للمذاكرة ومكتب مرتب (بعيداً عن السرير!)</span>
+                            </label>
+                            <label class="flex items-center gap-3 p-3 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/70 dark:border-slate-700/60 cursor-pointer hover:border-indigo-400 transition-all">
+                                <input type="checkbox" onchange="updateEnvChecklist()" class="env-check w-5 h-5 rounded text-indigo-600 focus:ring-indigo-500">
+                                <span class="text-xs sm:text-sm font-semibold text-slate-800 dark:text-slate-200" data-i18n="env_item_2">٢. إضاءة مريحة وتهوية جيدة (لتوفير 20% أكسجين للدماغ)</span>
+                            </label>
+                            <label class="flex items-center gap-3 p-3 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/70 dark:border-slate-700/60 cursor-pointer hover:border-indigo-400 transition-all">
+                                <input type="checkbox" onchange="updateEnvChecklist()" class="env-check w-5 h-5 rounded text-indigo-600 focus:ring-indigo-500">
+                                <span class="text-xs sm:text-sm font-semibold text-slate-800 dark:text-slate-200" data-i18n="env_item_3">٣. إبعاد الهاتف تماماً وإغلاق الإشعارات والتلفاز</span>
+                            </label>
+                            <label class="flex items-center gap-3 p-3 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/70 dark:border-slate-700/60 cursor-pointer hover:border-indigo-400 transition-all">
+                                <input type="checkbox" onchange="updateEnvChecklist()" class="env-check w-5 h-5 rounded text-indigo-600 focus:ring-indigo-500">
+                                <span class="text-xs sm:text-sm font-semibold text-slate-800 dark:text-slate-200" data-i18n="env_item_4">٤. جلسة صحية مريحة وكوب ماء بجانبك</span>
+                            </label>
+                            <label class="flex items-center gap-3 p-3 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/70 dark:border-slate-700/60 cursor-pointer hover:border-indigo-400 transition-all">
+                                <input type="checkbox" onchange="updateEnvChecklist()" class="env-check w-5 h-5 rounded text-indigo-600 focus:ring-indigo-500">
+                                <span class="text-xs sm:text-sm font-semibold text-slate-800 dark:text-slate-200" data-i18n="env_item_5">٥. تجهيز ورقة جانبية لـ (قائمة القلق) لتفريغ الذهن</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div id="env-status-banner" class="mt-4 p-3 rounded-xl bg-slate-100 dark:bg-slate-800 text-xs font-bold text-center text-slate-600 dark:text-slate-300" data-i18n="env_banner_default">
+                        حدد العناصر الجاهزة حولك الآن لتقييم بيئة مذاكرتك!
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             4. VAK LEARNING STYLE QUIZ (أنماط التعلم الثلاثة)
+             ========================================== -->
+        <section id="vak-section" class="space-y-8 scroll-mt-20">
+            <div class="text-center max-w-3xl mx-auto space-y-3">
+                <span class="px-3.5 py-1 rounded-full bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 text-xs font-bold border border-indigo-500/20" data-i18n="sec4_badge">السر الثالث: اعرف شفرة عقلك</span>
+                <h2 class="text-2xl sm:text-4xl font-black text-slate-900 dark:text-white" data-i18n="sec4_title">اختبار أنماط التعلم: هل أنت بصري، سمعي، أم حركي؟</h2>
+                <p class="text-sm sm:text-base text-slate-600 dark:text-slate-400" data-i18n="sec4_desc">
+                    يستقبل كل إنسان المعلومات بطريقة مفضلة. أجب عن الأسئلة الثلاثة السريعة بالأسفل أو استكشف أفضل استراتيجيات المذاكرة لكل نمط، وكيف تدمج الأنماط الثلاثة معاً!
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                <!-- Interactive VAK Quiz Box -->
+                <div class="lg:col-span-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-6 sm:p-7 shadow-lg space-y-5">
+                    <h3 class="text-lg font-extrabold text-slate-900 dark:text-white flex items-center gap-2">
+                        <i class="fa-solid fa-compass-drafting text-indigo-500"></i>
+                        <span data-i18n="vak_quiz_title">اختبر نمط تعلمك في 30 ثانية</span>
+                    </h3>
+
+                    <!-- Question 1 -->
+                    <div class="space-y-2">
+                        <p class="text-xs sm:text-sm font-bold text-slate-800 dark:text-slate-200" data-i18n="vak_q1">١. عندما تحاول تذكر معلومة في الامتحان، ماذا يخطر ببالك أولاً؟</p>
+                        <div class="grid grid-cols-1 gap-2">
+                            <button onclick="selectVakAnswer(0, 'V')" id="vak-q0-V" class="vak-opt text-start p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 text-xs sm:text-sm hover:border-indigo-500 transition-all" data-i18n="vak_q1_v">👁️ شكل الصفحة، الألوان، والرسوم التوضيحية في الكتاب</button>
+                            <button onclick="selectVakAnswer(0, 'A')" id="vak-q0-A" class="vak-opt text-start p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 text-xs sm:text-sm hover:border-indigo-500 transition-all" data-i18n="vak_q1_a">🎧 صوت المعلم أو صوتي وأنا أقرأ المعلومة بصوت عالٍ</button>
+                            <button onclick="selectVakAnswer(0, 'K')" id="vak-q0-K" class="vak-opt text-start p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 text-xs sm:text-sm hover:border-indigo-500 transition-all" data-i18n="vak_q1_k">✍️ ما كتبته بيدي أو التجربة العملية وحركتي أثناء المذاكرة</button>
+                        </div>
+                    </div>
+
+                    <!-- Question 2 -->
+                    <div class="space-y-2">
+                        <p class="text-xs sm:text-sm font-bold text-slate-800 dark:text-slate-200" data-i18n="vak_q2">٢. ما هي طريقتك المفضلة لفهم درس معقد وجديد؟</p>
+                        <div class="grid grid-cols-1 gap-2">
+                            <button onclick="selectVakAnswer(1, 'V')" id="vak-q1-V" class="vak-opt text-start p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 text-xs sm:text-sm hover:border-indigo-500 transition-all" data-i18n="vak_q2_v">👁️ رسم خريطة ذهنية (Mind Map) ومشاهدة فيديو مصور</button>
+                            <button onclick="selectVakAnswer(1, 'A')" id="vak-q1-A" class="vak-opt text-start p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 text-xs sm:text-sm hover:border-indigo-500 transition-all" data-i18n="vak_q2_a">🎧 مناقشة الدرس مع زميل أو شرحه لنفسي بصوت مسموع</button>
+                            <button onclick="selectVakAnswer(1, 'K')" id="vak-q1-K" class="vak-opt text-start p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 text-xs sm:text-sm hover:border-indigo-500 transition-all" data-i18n="vak_q2_k">✍️ حل تدريبات وتطبيقات عملية والتجول في الغرفة أثناء الحفظ</button>
+                        </div>
+                    </div>
+
+                    <!-- Question 3 -->
+                    <div class="space-y-2">
+                        <p class="text-xs sm:text-sm font-bold text-slate-800 dark:text-slate-200" data-i18n="vak_q3">٣. ما أكثر شيء يشتت انتباهك أثناء المذاكرة؟</p>
+                        <div class="grid grid-cols-1 gap-2">
+                            <button onclick="selectVakAnswer(2, 'V')" id="vak-q2-V" class="vak-opt text-start p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 text-xs sm:text-sm hover:border-indigo-500 transition-all" data-i18n="vak_q3_v">👁️ الفوضى البصرية حولي على المكتب أو حركة الأشخاص</button>
+                            <button onclick="selectVakAnswer(2, 'A')" id="vak-q2-A" class="vak-opt text-start p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 text-xs sm:text-sm hover:border-indigo-500 transition-all" data-i18n="vak_q3_a">🎧 الأصوات الجانبية والضوضاء أو الحديث في الغرفة المجاورة</button>
+                            <button onclick="selectVakAnswer(2, 'K')" id="vak-q2-K" class="vak-opt text-start p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 text-xs sm:text-sm hover:border-indigo-500 transition-all" data-i18n="vak_q3_k">✍️ الجلوس الثابت لفترة طويلة دون حركة أو كتابة</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- VAK Results & Strategies Column -->
+                <div class="lg:col-span-6 space-y-4">
+                    <!-- Result Card -->
+                    <div class="rounded-3xl bg-gradient-to-br from-indigo-600 to-purple-700 text-white p-6 sm:p-7 shadow-xl">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="px-3 py-1 rounded-full bg-white/20 text-xs font-bold" data-i18n="vak_res_badge">نتيجتك وتوصية الكتاب</span>
+                            <i class="fa-solid fa-award text-2xl text-amber-300"></i>
+                        </div>
+                        <h4 id="vak-result-title" class="text-xl sm:text-2xl font-black mb-2" data-i18n="vak_default_title">اختر إجاباتك لاكتشاف نمطك المهيمن!</h4>
+                        <p id="vak-result-desc" class="text-xs sm:text-sm text-indigo-100 leading-relaxed" data-i18n="vak_default_desc">
+                            نصيحة ذهبية من الفيديو: حتى لو كان لديك نمط مفضل، فإن **دمج الأنماط الثلاثة معاً** (أن تقرأ بعينك، وتسمع بصوتك، وتلخص بيدك) يضاعف قوة الذاكرة 3 مرات!
+                        </p>
+                    </div>
+
+                    <!-- 3 Style Cards Summary -->
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3.5">
+                        <div class="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
+                            <div class="text-indigo-500 font-extrabold text-sm mb-1 flex items-center gap-1.5">
+                                <i class="fa-solid fa-eye"></i>
+                                <span data-i18n="vak_card_v_title">المتعلم البصري</span>
+                            </div>
+                            <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed" data-i18n="vak_card_v_desc">
+                                استخدم الأقلام الملونة (Highlighters)، الخرائط الذهنية، الرسوم البيانية، والبطاقات المصورة.
+                            </p>
+                        </div>
+
+                        <div class="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
+                            <div class="text-emerald-500 font-extrabold text-sm mb-1 flex items-center gap-1.5">
+                                <i class="fa-solid fa-ear-listen"></i>
+                                <span data-i18n="vak_card_a_title">المتعلم السمعي</span>
+                            </div>
+                            <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed" data-i18n="vak_card_a_desc">
+                                اقرأ بصوت مسموع، اشرح الدرس لغيرك (أو لنفسك كأنك المعلم)، وسجل الملخصات بصوتك.
+                            </p>
+                        </div>
+
+                        <div class="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
+                            <div class="text-amber-500 font-extrabold text-sm mb-1 flex items-center gap-1.5">
+                                <i class="fa-solid fa-person-walking"></i>
+                                <span data-i18n="vak_card_k_title">المتعلم الحركي</span>
+                            </div>
+                            <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed" data-i18n="vak_card_k_desc">
+                                لخص بالكتابة اليدوية، تحرك أثناء المراجعة، واستخدم النماذج والتطبيقات العملية وحل الأسئلة.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             5. THE 4 MEMORY SECRETS LAB (مختبر تقنيات الذاكرة الأربع)
+             ========================================== -->
+        <section id="memory-section" class="space-y-8 scroll-mt-20">
+            <div class="text-center max-w-3xl mx-auto space-y-3">
+                <span class="px-3.5 py-1 rounded-full bg-amber-500/10 text-amber-600 dark:text-amber-400 text-xs font-bold border border-amber-500/20" data-i18n="sec5_badge">السر الرابع: وداعاً للنسيان</span>
+                <h2 class="text-2xl sm:text-4xl font-black text-slate-900 dark:text-white" data-i18n="sec5_title">مختبر أسرار الذاكرة القوية (التقنيات الأربع)</h2>
+                <p class="text-sm sm:text-base text-slate-600 dark:text-slate-400" data-i18n="sec5_desc">
+                    الذاكرة ليست "صندوقاً يمتلئ" بل هي عضلة تقوى بالتدريب! جرب بنفسك التقنيات الأربع التي تحول المعلومات من الذاكرة قصيرة المدى إلى الذاكرة الدائمة:
+                </p>
+            </div>
+
+            <!-- Interactive Tabs Header -->
+            <div class="flex flex-wrap justify-center gap-2 sm:gap-3">
+                <button onclick="switchMemoryTab(1)" id="mem-tab-1" class="px-4 sm:px-6 py-3 rounded-2xl font-bold text-xs sm:text-sm transition-all bg-indigo-600 text-white shadow-lg shadow-indigo-500/25 flex items-center gap-2">
+                    <i class="fa-solid fa-link"></i>
+                    <span data-i18n="mem_tab1_btn">1. الربط (Association)</span>
+                </button>
+                <button onclick="switchMemoryTab(2)" id="mem-tab-2" class="px-4 sm:px-6 py-3 rounded-2xl font-bold text-xs sm:text-sm transition-all bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-800 flex items-center gap-2">
+                    <i class="fa-solid fa-eye-low-vision"></i>
+                    <span data-i18n="mem_tab2_btn">2. التصور (Visualization)</span>
+                </button>
+                <button onclick="switchMemoryTab(3)" id="mem-tab-3" class="px-4 sm:px-6 py-3 rounded-2xl font-bold text-xs sm:text-sm transition-all bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-800 flex items-center gap-2">
+                    <i class="fa-solid fa-puzzle-piece"></i>
+                    <span data-i18n="mem_tab3_btn">3. التقسيم (Chunking)</span>
+                </button>
+                <button onclick="switchMemoryTab(4)" id="mem-tab-4" class="px-4 sm:px-6 py-3 rounded-2xl font-bold text-xs sm:text-sm transition-all bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-800 flex items-center gap-2">
+                    <i class="fa-solid fa-calendar-check"></i>
+                    <span data-i18n="mem_tab4_btn">4. التكرار الذكي (Spaced Repetition)</span>
+                </button>
+            </div>
+
+            <!-- Tab Content Container -->
+            <div class="rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-xl">
+
+                <!-- TAB 1: ASSOCIATION -->
+                <div id="mem-panel-1" class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                    <div class="lg:col-span-6 space-y-4">
+                        <span class="px-3 py-1 rounded-lg bg-indigo-500/10 text-indigo-500 text-xs font-bold" data-i18n="mem1_tag">التقنية الأولى: بناء الجسور العصبية</span>
+                        <h3 class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white" data-i18n="mem1_title">الربط (Association): لا تحفظ معلومة يتيمة!</h3>
+                        <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed" data-i18n="mem1_desc">
+                            الدماغ البشري يكره المعلومات المعزولة، لكنه يبدع في تذكر العلاقات. عندما تتعلم معلومة جديدة، اسأل نفسك فوراً: "بماذا تشبه هذه المعلومة شيئاً أعرفه مسبقاً في حياتي اليومية؟"
+                        </p>
+                        <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/70 border border-slate-200/70 dark:border-slate-700 space-y-2 text-xs sm:text-sm">
+                            <div class="font-bold text-indigo-600 dark:text-indigo-400" data-i18n="mem1_ex_title">💡 مثال تطبيقي:</div>
+                            <p class="text-slate-700 dark:text-slate-300" data-i18n="mem1_ex_body">
+                                بدلاً من حفظ وظيفة "الميتوكوندريا" بصمّها، اربطها بـ "محطة توليد الكهرباء في مدينتك" أو "بطارية هاتفك المحمول". الآن لن تنساها أبداً!
+                            </p>
+                        </div>
+                    </div>
+                    <!-- Interactive Association Builder -->
+                    <div class="lg:col-span-6 bg-slate-50 dark:bg-slate-800/50 p-5 sm:p-6 rounded-2xl border border-slate-200 dark:border-slate-700 space-y-4">
+                        <h4 class="font-bold text-sm sm:text-base text-slate-900 dark:text-white" data-i18n="mem1_tool_title">🛠️ صانع الروابط الذهنية التفاعلي</h4>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-500 mb-1" data-i18n="mem1_inp1_lbl">المعلومة الجديدة الصعبة:</label>
+                                <input id="assoc-new-input" type="text" class="w-full px-3.5 py-2.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-xs sm:text-sm" placeholder="مثال: التيار الكهربائي">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-500 mb-1" data-i18n="mem1_inp2_lbl">شيء مألوف تعرفه جيداً:</label>
+                                <input id="assoc-old-input" type="text" class="w-full px-3.5 py-2.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-xs sm:text-sm" placeholder="مثال: تدفق الماء في الأنبوب">
+                            </div>
+                        </div>
+                        <button onclick="createAssociationBridge()" class="w-full py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs sm:text-sm transition-all">
+                            <i class="fa-solid fa-bridge mx-1"></i>
+                            <span data-i18n="mem1_btn_create">ابنِ الجسر العصبي الآن</span>
+                        </button>
+                        <div id="assoc-output-list" class="space-y-2 pt-2">
+                            <!-- Default sample bridge -->
+                            <div class="p-3 rounded-xl bg-white dark:bg-slate-900 border border-indigo-500/30 flex items-center justify-between text-xs sm:text-sm font-bold">
+                                <span class="text-indigo-600 dark:text-indigo-400" data-i18n="mem1_sample_a">القشرة المخية</span>
+                                <span class="text-emerald-500 px-2"><i class="fa-solid fa-arrows-left-right"></i></span>
+                                <span class="text-emerald-600 dark:text-emerald-400" data-i18n="mem1_sample_b">المعالج الذكي (CPU)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TAB 2: VISUALIZATION -->
+                <div id="mem-panel-2" class="hidden grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                    <div class="lg:col-span-6 space-y-4">
+                        <span class="px-3 py-1 rounded-lg bg-purple-500/10 text-purple-500 text-xs font-bold" data-i18n="mem2_tag">التقنية الثانية: العقل يفكر بالصور</span>
+                        <h3 class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white" data-i18n="mem2_title">التصور الذهني (Visualization): حوّل الكلمات إلى فيلم!</h3>
+                        <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed" data-i18n="mem2_desc">
+                            عندما أقول لك كلمة "تفاحة"، لا يظهر في عقلك حروف (ت - ف - ا - ح - ة)، بل تظهر صورة التفاحة ولونها وطعمها! حوّل أي فقرة دراسية إلى مشهد سينمائي حي، ملون، وحتى غريب أو مضحك لأن الدماغ يعشق الصور غير المألوفة.
+                        </p>
+                    </div>
+                    <div class="lg:col-span-6 bg-slate-50 dark:bg-slate-800/50 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 space-y-4">
+                        <h4 class="font-bold text-sm sm:text-base text-slate-900 dark:text-white" data-i18n="mem2_tool_title">🎬 تجربة: النص الجاف مقابل الصورة الذهنية الحية</h4>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div class="p-4 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700">
+                                <div class="text-xs font-bold text-rose-500 mb-1" data-i18n="mem2_boring_lbl">❌ نص جاف (ينسى سريعاً):</div>
+                                <p class="text-xs text-slate-600 dark:text-slate-400" data-i18n="mem2_boring_txt">
+                                    "العقل الزاحف يغلق القشرة المخية عند الشعور بالخوف أثناء الامتحان."
+                                </p>
+                            </div>
+                            <div class="p-4 rounded-xl bg-indigo-500/10 border border-indigo-500/30">
+                                <div class="text-xs font-bold text-emerald-500 mb-1" data-i18n="mem2_vivid_lbl">✅ صورة ذهنية حية (لا تُنسى):</div>
+                                <p class="text-xs text-slate-700 dark:text-slate-200 font-semibold" data-i18n="mem2_vivid_txt">
+                                    "تخيل ديناصوراً صغيراً يرتدي خوذة حارس أمن، يطفئ أضواء غرفة الكمبيوتر في رأسك بمجرد أن تصرخ!"
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TAB 3: CHUNKING -->
+                <div id="mem-panel-3" class="hidden grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                    <div class="lg:col-span-6 space-y-4">
+                        <span class="px-3 py-1 rounded-lg bg-emerald-500/10 text-emerald-500 text-xs font-bold" data-i18n="mem3_tag">التقنية الثالثة: سعة الذاكرة القصيرة (7±2)</span>
+                        <h3 class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white" data-i18n="mem3_title">التقسيم (Chunking): قسّم الفيل إلى لقيمات صغيرة!</h3>
+                        <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed" data-i18n="mem3_desc">
+                            الذاكرة قصيرة المدى لا تستطيع الاحتفاظ بأكثر من 5 إلى 9 عناصر متفرقة في وقت واحد. لكن إذا جمعتها في مجموعات ذات معنى (Chunks)، يتعامل معها عقلك كعنصر واحد فقط!
+                        </p>
+                    </div>
+                    <!-- Interactive Chunking Mini-Experiment -->
+                    <div class="lg:col-span-6 bg-slate-50 dark:bg-slate-800/50 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 space-y-4">
+                        <div class="flex items-center justify-between">
+                            <h4 class="font-bold text-sm sm:text-base text-slate-900 dark:text-white" data-i18n="mem3_game_title">🧩 تجربة التقسيم الفورية</h4>
+                            <button onclick="generateChunkExample()" class="text-xs font-bold text-indigo-600 dark:text-indigo-400 hover:underline" data-i18n="mem3_new_num">رقم جديد ↻</button>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="p-3.5 rounded-xl bg-rose-500/10 border border-rose-500/20">
+                                <div class="text-xs font-bold text-rose-500 mb-1" data-i18n="mem3_raw_lbl">بدون تقسيم (12 رقماً منفصلاً - صعب الحفظ):</div>
+                                <div id="chunk-raw-display" class="font-mono text-lg sm:text-xl font-black tracking-widest text-slate-800 dark:text-slate-200">197320261448</div>
+                            </div>
+                            <div class="p-3.5 rounded-xl bg-emerald-500/10 border border-emerald-500/20">
+                                <div class="text-xs font-bold text-emerald-500 mb-1" data-i18n="mem3_chunked_lbl">بالتقسيم الذكي (3 مجموعات فقط - يحفظ في ثانية!):</div>
+                                <div id="chunk-grouped-display" class="font-mono text-lg sm:text-xl font-black text-emerald-600 dark:text-emerald-400 flex flex-wrap gap-3">
+                                    <span class="px-3 py-1 rounded-lg bg-white dark:bg-slate-900 shadow-sm">1973</span>
+                                    <span class="px-3 py-1 rounded-lg bg-white dark:bg-slate-900 shadow-sm">2026</span>
+                                    <span class="px-3 py-1 rounded-lg bg-white dark:bg-slate-900 shadow-sm">1448</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TAB 4: SPACED REPETITION -->
+                <div id="mem-panel-4" class="hidden grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                    <div class="lg:col-span-5 space-y-4">
+                        <span class="px-3 py-1 rounded-lg bg-amber-500/10 text-amber-500 text-xs font-bold" data-i18n="mem4_tag">التقنية الرابعة: هزيمة منحنى النسيان</span>
+                        <h3 class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white" data-i18n="mem4_title">التكرار المتباعد الذكي (Spaced Repetition)</h3>
+                        <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed" data-i18n="mem4_desc">
+                            تكرار الجملة 20 مرة في نفس الليلة متعب وقليل الفائدة! السر هو مراجعة المعلومة على فترات متباعدة قبل أن ينساها الدماغ: بعد يوم، ثم 3 أيام، ثم 7 أيام، ثم 14 يوماً، ثم 30 يوماً.
+                        </p>
+                    </div>
+                    <!-- Spaced Repetition Schedule Generator -->
+                    <div class="lg:col-span-7 bg-slate-50 dark:bg-slate-800/50 p-5 sm:p-6 rounded-2xl border border-slate-200 dark:border-slate-700 space-y-4">
+                        <h4 class="font-bold text-sm sm:text-base text-slate-900 dark:text-white" data-i18n="mem4_gen_title">📅 مولّد جدول المراجعة المتباعدة للدرس</h4>
+                        <div class="flex flex-col sm:flex-row gap-3">
+                            <input id="sr-topic-input" type="text" class="flex-1 px-3.5 py-2.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-xs sm:text-sm" placeholder="اكتب اسم الدرس الذي ذاكرته اليوم..." oninput="generateSpacedSchedule()">
+                            <button onclick="copySpacedSchedule()" class="px-4 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs sm:text-sm shrink-0 flex items-center justify-center gap-2">
+                                <i class="fa-regular fa-copy"></i>
+                                <span data-i18n="mem4_copy_btn">نسخ الجدول</span>
+                            </button>
+                        </div>
+                        <div id="sr-schedule-grid" class="grid grid-cols-2 sm:grid-cols-5 gap-2.5 pt-1">
+                            <!-- Populated dynamically by JS -->
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ==========================================
+             6. LAW OF BEGINNINGS & ENDINGS + SMART TIMER
+             ========================================== -->
+        <section id="timer-section" class="space-y-8 scroll-mt-20">
+            <div class="text-center max-w-3xl mx-auto space-y-3">
+                <span class="px-3.5 py-1 rounded-full bg-rose-500/10 text-rose-600 dark:text-rose-400 text-xs font-bold border border-rose-500/20" data-i18n="sec6_badge">السر الخامس: إدارة الوقت بذكاء</span>
+                <h2 class="text-2xl sm:text-4xl font-black text-slate-900 dark:text-white" data-i18n="sec6_title">قانون البدايات والنهايات ومؤقت الجلسات الذكية</h2>
+                <p class="text-sm sm:text-base text-slate-600 dark:text-slate-400" data-i18n="sec6_desc">
+                    يتذكر العقل البشري دائماً **بداية** جلسة المذاكرة و**نهايتها** بأعلى كفاءة، بينما يضيع المنتصف في "وادي النسيان"! لذلك فإن تقسيم المذاكرة إلى جلسات (30-45 دقيقة) يصنع لك عدة بدايات وعدة نهايات!
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+                <!-- Interactive Retention Graph Comparison -->
+                <div class="lg:col-span-7 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-lg flex flex-col justify-between space-y-6">
+                    <div class="flex flex-wrap items-center justify-between gap-3">
+                        <h3 class="text-lg sm:text-xl font-extrabold text-slate-900 dark:text-white" data-i18n="curve_title">مقارنة منحنى التركيز والتذكر (3 ساعات)</h3>
+                        <div class="flex rounded-xl bg-slate-100 dark:bg-slate-800 p-1">
+                            <button onclick="setCurveMode('marathon')" id="curve-btn-marathon" class="px-3 py-1.5 rounded-lg text-xs font-bold transition-all text-slate-600 dark:text-slate-300" data-i18n="curve_btn_1">جلسة متواصلة (3 ساعات)</button>
+                            <button onclick="setCurveMode('smart')" id="curve-btn-smart" class="px-3 py-1.5 rounded-lg text-xs font-bold transition-all bg-emerald-500 text-white shadow" data-i18n="curve_btn_2">جلسات ذكية (4 × 40 د)</button>
+                        </div>
+                    </div>
+
+                    <!-- SVG Retention Curve Visualization -->
+                    <div class="relative bg-slate-50 dark:bg-slate-950/70 rounded-2xl p-4 border border-slate-200/70 dark:border-slate-800">
+                        <svg viewBox="0 0 600 220" class="w-full h-48 sm:h-56 overflow-visible">
+                            <!-- Grid lines -->
+                            <line x1="40" y1="30" x2="580" y2="30" stroke="currentColor" class="text-slate-200 dark:text-slate-800" stroke-dasharray="4"/>
+                            <line x1="40" y1="100" x2="580" y2="100" stroke="currentColor" class="text-slate-200 dark:text-slate-800" stroke-dasharray="4"/>
+                            <line x1="40" y1="170" x2="580" y2="170" stroke="currentColor" class="text-slate-200 dark:text-slate-800"/>
+
+                            <!-- Y-axis labels -->
+                            <text x="10" y="35" class="fill-emerald-500 text-[11px] font-bold">100%</text>
+                            <text x="15" y="105" class="fill-slate-400 text-[11px]">50%</text>
+                            <text x="20" y="175" class="fill-rose-500 text-[11px]">15%</text>
+
+                            <!-- Marathon Curve (1 Beginning, 1 End, Deep Middle Dip) -->
+                            <path id="svg-curve-marathon" d="M 45 35 C 140 175, 480 175, 575 40" fill="none" stroke="#f43f5e" stroke-width="4" stroke-dasharray="6,6" class="opacity-35 transition-all duration-500"/>
+
+                            <!-- Smart Sessions Curve (4 Beginnings & 4 Endings) -->
+                            <path id="svg-curve-smart" d="M 45 35 Q 110 75 165 35 M 180 35 Q 245 75 300 35 M 315 35 Q 380 75 435 35 M 450 35 Q 515 75 575 35" fill="none" stroke="#10b981" stroke-width="5" stroke-linecap="round" class="transition-all duration-500"/>
+
+                            <!-- Peak Dots for Smart Curve -->
+                            <g id="svg-dots-smart">
+                                <circle cx="45" cy="35" r="5" fill="#10b981"/>
+                                <circle cx="165" cy="35" r="5" fill="#10b981"/>
+                                <circle cx="180" cy="35" r="5" fill="#10b981"/>
+                                <circle cx="300" cy="35" r="5" fill="#10b981"/>
+                                <circle cx="315" cy="35" r="5" fill="#10b981"/>
+                                <circle cx="435" cy="35" r="5" fill="#10b981"/>
+                                <circle cx="450" cy="35" r="5" fill="#10b981"/>
+                                <circle cx="575" cy="35" r="5" fill="#10b981"/>
+                            </g>
+                        </svg>
+                        <div id="curve-caption" class="text-xs sm:text-sm font-bold text-center text-emerald-600 dark:text-emerald-400 mt-2" data-i18n="curve_smart_caption">
+                            ✨ 4 جلسات ذكية = 4 بدايات قوية + 4 نهايات قوية + استراحات تجدد الأكسجين والتركيز (تذكر يفوق 85%)!
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-3 text-xs sm:text-sm">
+                        <div class="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-700/60">
+                            <span class="font-bold text-indigo-500 block mb-0.5" data-i18n="primacy_title">تأثير الأولوية (البدايات):</span>
+                            <span class="text-slate-600 dark:text-slate-300" data-i18n="primacy_desc">العقل في قمة نشاطه في أول 15 دقيقة من كل جلسة.</span>
+                        </div>
+                        <div class="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-700/60">
+                            <span class="font-bold text-emerald-500 block mb-0.5" data-i18n="recency_title">تأثير الحداثة (النهايات):</span>
+                            <span class="text-slate-600 dark:text-slate-300" data-i18n="recency_desc">آخر 10 دقائق تترسخ بقوة؛ خصصها لمراجعة سريعة لما قرأته!</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Functional Smart Study Timer -->
+                <div class="lg:col-span-5 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-lg flex flex-col justify-between items-center text-center">
+                    <div class="w-full">
+                        <h3 class="text-lg sm:text-xl font-extrabold text-slate-900 dark:text-white mb-2" data-i18n="timer_title">⏱️ مؤقت الجلسات الذكية (30 - 45 دقيقة)</h3>
+                        <!-- Preset Buttons -->
+                        <div class="flex flex-wrap justify-center gap-2 my-3">
+                            <button onclick="setTimerPreset(30, 'study')" class="px-3 py-1.5 rounded-xl bg-indigo-500/10 hover:bg-indigo-500/20 text-indigo-600 dark:text-indigo-300 text-xs font-bold transition-all" data-i18n="timer_p30">30 د مذاكرة</button>
+                            <button onclick="setTimerPreset(45, 'study')" class="px-3 py-1.5 rounded-xl bg-indigo-500/10 hover:bg-indigo-500/20 text-indigo-600 dark:text-indigo-300 text-xs font-bold transition-all" data-i18n="timer_p45">45 د مذاكرة</button>
+                            <button onclick="setTimerPreset(5, 'break')" class="px-3 py-1.5 rounded-xl bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-600 dark:text-emerald-300 text-xs font-bold transition-all" data-i18n="timer_p5">5 د استراحة</button>
+                            <button onclick="setTimerPreset(10, 'break')" class="px-3 py-1.5 rounded-xl bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-600 dark:text-emerald-300 text-xs font-bold transition-all" data-i18n="timer_p10">10 د استراحة</button>
+                        </div>
+                    </div>
+
+                    <!-- Circular Timer Display -->
+                    <div class="relative w-44 h-44 flex items-center justify-center my-2">
+                        <svg class="w-full h-full -rotate-90" viewBox="0 0 120 120">
+                            <circle cx="60" cy="60" r="52" fill="none" stroke="currentColor" stroke-width="8" class="text-slate-100 dark:text-slate-800"/>
+                            <circle id="timer-progress-ring" cx="60" cy="60" r="52" fill="none" stroke="#6366f1" stroke-width="8" stroke-linecap="round" stroke-dasharray="326.7" stroke-dashoffset="0" class="transition-all duration-500"/>
+                        </svg>
+                        <div class="absolute inset-0 flex flex-col items-center justify-center">
+                            <span id="timer-display" class="font-mono text-3xl sm:text-4xl font-black text-slate-900 dark:text-white">30:00</span>
+                            <span id="timer-mode-label" class="text-xs font-bold text-indigo-500 mt-1" data-i18n="timer_mode_study">جلسة تركيز ذكية</span>
+                        </div>
+                    </div>
+
+                    <!-- Session Goal Input & Controls -->
+                    <div class="w-full space-y-3">
+                        <input id="timer-goal-input" type="text" class="w-full px-3.5 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs sm:text-sm text-center" placeholder="ما هو هدفك المحدد في هذه الـ 30 دقيقة؟">
+                        <div class="flex justify-center gap-3">
+                            <button onclick="toggleSmartTimer()" id="timer-start-btn" class="flex-1 py-3 rounded-2xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-sm shadow-lg shadow-indigo-500/25 flex items-center justify-center gap-2 transition-all">
+                                <i id="timer-btn-icon" class="fa-solid fa-play"></i>
+                                <span id="timer-btn-text" data-i18n="timer_start">ابدأ الجلسة</span>
+                            </button>
+                            <button onclick="resetSmartTimer()" class="px-4 py-3 rounded-2xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 font-bold text-sm transition-all" title="Reset">
+                                <i class="fa-solid fa-rotate-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             7. FOCUS, DISTRACTIONS & THE "WORRY LIST" VAULT
+             ========================================== -->
+        <section id="worry-section" class="space-y-8 scroll-mt-20">
+            <div class="text-center max-w-3xl mx-auto space-y-3">
+                <span class="px-3.5 py-1 rounded-full bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 text-xs font-bold border border-indigo-500/20" data-i18n="sec7_badge">السر السادس: التركيز الخارق</span>
+                <h2 class="text-2xl sm:text-4xl font-black text-slate-900 dark:text-white" data-i18n="sec7_title">محاربة المشتتات وخزنة "قائمة القلق" (Worry List)</h2>
+                <p class="text-sm sm:text-base text-slate-600 dark:text-slate-400" data-i18n="sec7_desc">
+                    ينقسم التشتت إلى مشتتات خارجية (الهاتف، التلفاز، الضوضاء) ومشتتات داخلية (الإرهاق، قلة النوم، والمشاكل الشخصية). إليك الأداة السحرية التي أوصى بها الكتاب لتفريغ المشتتات الداخلية فوراً!
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                <!-- Interactive Worry List Vault -->
+                <div class="lg:col-span-7 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-lg space-y-5">
+                    <div class="flex flex-wrap items-center justify-between gap-2">
+                        <div>
+                            <h3 class="text-lg sm:text-xl font-extrabold text-slate-900 dark:text-white flex items-center gap-2">
+                                <i class="fa-solid fa-vault text-indigo-500"></i>
+                                <span data-i18n="worry_title">خزنة "قائمة القلق" (Worry List Pad)</span>
+                            </h3>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 mt-1" data-i18n="worry_subtitle">
+                                كلما خطرت ببالك مشكلة أو مشوار أثناء المذاكرة، اكتبه هنا واقفل عليه لتتعامل معه بعد انتهاء الجلسة!
+                            </p>
+                        </div>
+                        <button onclick="toggleWorryVaultLock()" id="vault-lock-btn" class="px-4 py-2 rounded-xl bg-amber-500/15 hover:bg-amber-500/25 text-amber-600 dark:text-amber-400 font-bold text-xs sm:text-sm flex items-center gap-2 transition-all border border-amber-500/30">
+                            <i id="vault-lock-icon" class="fa-solid fa-lock"></i>
+                            <span id="vault-lock-text" data-i18n="vault_lock_btn">اقفل على القلق أثناء المذاكرة</span>
+                        </button>
+                    </div>
+
+                    <!-- Input Form -->
+                    <div class="flex gap-2">
+                        <input id="worry-input" type="text" onkeydown="if(event.key==='Enter') addWorryItem()" class="flex-1 px-4 py-3 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs sm:text-sm" placeholder="اكتب أي فكرة أو قلق يشغل بالك الآن لتفرغ عقلك...">
+                        <button onclick="addWorryItem()" class="px-5 py-3 rounded-2xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs sm:text-sm shrink-0">
+                            <i class="fa-solid fa-plus"></i>
+                            <span data-i18n="worry_add_btn">أفرغ الفكرة</span>
+                        </button>
+                    </div>
+
+                    <!-- Worry Items List -->
+                    <div class="relative">
+                        <div id="worry-list-container" class="space-y-2.5 max-h-60 overflow-y-auto pr-1">
+                            <!-- Filled dynamically by JS -->
+                        </div>
+                        <!-- Vault Locked Overlay -->
+                        <div id="vault-overlay" class="hidden absolute inset-0 rounded-2xl bg-slate-900/75 backdrop-blur-md flex flex-col items-center justify-center text-white p-4 text-center">
+                            <i class="fa-solid fa-shield-heart text-3xl text-emerald-400 mb-2"></i>
+                            <h5 class="font-extrabold text-sm sm:text-base" data-i18n="vault_locked_title">جميع أفكارك ومهامك محفوظة بأمان في الخزنة!</h5>
+                            <p class="text-xs text-slate-300 mt-1" data-i18n="vault_locked_desc">عقلك الآن حر 100% للتركيز في المذاكرة. يمكنك فتح الخزنة بعد انتهاء الجلسة.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5 Practical Action Steps Summary Card -->
+                <div class="lg:col-span-5 rounded-3xl bg-gradient-to-br from-slate-900 to-indigo-950 text-white p-6 sm:p-8 shadow-xl space-y-5 border border-indigo-500/30">
+                    <div class="flex items-center gap-3">
+                        <div class="w-11 h-11 rounded-2xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-xl">
+                            <i class="fa-solid fa-trophy"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg sm:text-xl font-extrabold" data-i18n="steps_title">الخلاصة: 5 خطوات عملية للبدء اليوم</h3>
+                            <p class="text-xs text-indigo-200" data-i18n="steps_subtitle">خطة العمل اليومية من كتاب "ادرس بذكاء وليس بجهد"</p>
+                        </div>
+                    </div>
+
+                    <ul class="space-y-3 text-xs sm:text-sm">
+                        <li class="flex items-start gap-3 p-3 rounded-2xl bg-white/5 border border-white/10">
+                            <span class="w-6 h-6 rounded-full bg-emerald-500 text-slate-950 font-black flex items-center justify-center text-xs shrink-0 mt-0.5">1</span>
+                            <span data-i18n="step_1_txt"><strong>هيئ بيئتك ونفسك:</strong> مكان مرتب، إضاءة وتهوية جيدة، و3 أنفاس عميقة للدخول في موجات ألفا.</span>
+                        </li>
+                        <li class="flex items-start gap-3 p-3 rounded-2xl bg-white/5 border border-white/10">
+                            <span class="w-6 h-6 rounded-full bg-emerald-500 text-slate-950 font-black flex items-center justify-center text-xs shrink-0 mt-0.5">2</span>
+                            <span data-i18n="step_2_txt"><strong>ناغم عقولك الثلاثة:</strong> اطرد الخوف والتوتر، واصنع شغفاً وهدفاً واضحاً لكل جلسة مذاكرة.</span>
+                        </li>
+                        <li class="flex items-start gap-3 p-3 rounded-2xl bg-white/5 border border-white/10">
+                            <span class="w-6 h-6 rounded-full bg-emerald-500 text-slate-950 font-black flex items-center justify-center text-xs shrink-0 mt-0.5">3</span>
+                            <span data-i18n="step_3_txt"><strong>ادمج الحواس الثلاث:</strong> اقرأ بعينك (خرائط وألوان)، اسمع بصوتك (اشرح لنفسك)، واكتب بيدك.</span>
+                        </li>
+                        <li class="flex items-start gap-3 p-3 rounded-2xl bg-white/5 border border-white/10">
+                            <span class="w-6 h-6 rounded-full bg-emerald-500 text-slate-950 font-black flex items-center justify-center text-xs shrink-0 mt-0.5">4</span>
+                            <span data-i18n="step_4_txt"><strong>طبق أسرار الذاكرة الـ 4:</strong> الربط، التصور الذهني، التقسيم، والتكرار المتباعد الذكي.</span>
+                        </li>
+                        <li class="flex items-start gap-3 p-3 rounded-2xl bg-white/5 border border-white/10">
+                            <span class="w-6 h-6 rounded-full bg-emerald-500 text-slate-950 font-black flex items-center justify-center text-xs shrink-0 mt-0.5">5</span>
+                            <span data-i18n="step_5_txt"><strong>ذاكر في جلسات 30-45 دقيقة:</strong> استثمر قانون البدايات والنهايات وأفرغ المشتتات في قائمة القلق.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ==========================================
+         MANDATORY FOOTER WITH ATTRIBUTION
+         ========================================== -->
+    <footer class="relative z-10 mt-16 border-t border-slate-200 dark:border-slate-800 bg-white/90 dark:bg-slate-900/90 glass-card">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 flex flex-col items-center justify-center text-center space-y-4">
+            <div class="flex items-center gap-2 text-indigo-600 dark:text-indigo-400 font-bold text-sm">
+                <i class="fa-solid fa-graduation-cap text-lg"></i>
+                <span data-i18n="footer_book_ref">مبني على محتوى فيديو "أسرار العقل والذاكرة القوية" وملخص كتاب "ادرس بذكاء وليس بجهد"</span>
+            </div>
+
+            <!-- Prominent Mandatory Designer Attribution -->
+            <div class="px-6 py-3.5 rounded-2xl bg-gradient-to-r from-indigo-500/10 via-purple-500/10 to-emerald-500/10 border border-indigo-500/30 shadow-sm">
+                <p id="footer-signature" class="text-base sm:text-lg font-black bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 via-purple-600 to-emerald-600 dark:from-indigo-400 dark:via-purple-300 dark:to-emerald-400">
+                    تصميم محمد عوض خير بمساعدة Gemini 4 Argon
+                </p>
+            </div>
+
+            <div class="text-xs text-slate-500 dark:text-slate-400 flex items-center gap-3">
+                <a href="https://youtu.be/DLy01j1oxwM?si=pbpbD-7TPaB4ek94" target="_blank" rel="noopener noreferrer" class="hover:text-indigo-500 transition-colors flex items-center gap-1">
+                    <i class="fa-brands fa-youtube text-red-500"></i>
+                    <span data-i18n="footer_video_link">رابط الفيديو المرجعي على يوتيوب</span>
+                </a>
+                <span>•</span>
+                <span data-i18n="footer_interactive_tag">تطبيق ويب تعليمي تفاعلي ثنائي اللغة</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==========================================
+         APPLICATION JAVASCRIPT & BILINGUAL DICTIONARY
+         ========================================== -->
+    <script>
+        // --- 1. COMPLETE BILINGUAL TRANSLATION DICTIONARY (AR & EN) ---
+        const i18n = {
+            ar: {
+                nav_title: "ادرس بذكاء وليس بجهد",
+                nav_subtitle: "أسرار العقل والذاكرة القوية",
+                nav_brains: "العقول الثلاثة",
+                nav_alpha: "موجات ألفا",
+                nav_vak: "أنماط التعلم",
+                nav_memory: "تقنيات الذاكرة 4",
+                nav_timer: "البدايات والنهايات",
+                nav_worry: "قائمة القلق",
+                mastery_label: "جاهزية التعلم:",
+                lang_btn: "English",
+
+                hero_badge: "ملخص تفاعلي لكتاب كيفن بول (Study Smarter, Not Harder)",
+                hero_title_1: "أسرار العقل ",
+                hero_title_2: "والذاكرة القوية",
+                hero_desc: "هل تقضي ساعات طويلة أمام الكتب ثم تتبخر المعلومات في قاعة الامتحان؟ المشكلة ليست في قدرات عقلك، بل في أنك لم تتعلم \"كيف تتعلم\". اكتشف كيف تضاعف استيعابك مرتين في نصف الوقت عبر فهم أسرار دماغك.",
+                stat_1_val: "2X استيعاب",
+                stat_1_lbl: "في نصف الوقت",
+                stat_2_val: "20% أكسجين",
+                stat_2_lbl: "وقود العقل وموجات ألفا",
+                stat_3_val: "4 تقنيات",
+                stat_3_lbl: "لذاكرة حديدية دائمة",
+                btn_start_journey: "ابدأ الرحلة التفاعلية",
+                btn_watch_video: "مشاهدة الفيديو الأصلي",
+
+                sim_title: "محاكي: المذاكرة بجهد vs بذكاء",
+                sim_subtitle: "حرك المؤشر لترى الفرق في الوقت والتذكر",
+                sim_slider_label: "ساعات المذاكرة التقليدية يومياً:",
+                sim_hard_title: "بجهد تقليدي (حفظ صم)",
+                sim_smart_title: "بذكاء (تقنيات الكتاب)",
+                sim_time_spent: "الوقت المستغرق:",
+                sim_retention: "نسبة التذكر بالامتحان:",
+                sim_weekly_saved_lbl: "وقت حر توفره أسبوعياً مع تفوق أعلى:",
+
+                sec2_badge: "السر الأول من الفيديو",
+                sec2_title: "داخل رأسك ثلاثة عقول.. كيف تجعلها تعمل لصالحك؟",
+                sec2_desc: "ينقسم الدماغ البشري وظيفياً إلى 3 مستويات مترابطة. عندما تخاف من الامتحان أو تكره المادة، يتوقف عقلك المفكر عن العمل! اضغط على كل عقل لاكتشاف دوره واختبر حالة دماغك الآن.",
+                brain1_tag: "1. العقل الأول (البقاء والأمان)",
+                brain1_name: "العقل الزاحف (Reptilian Brain)",
+                brain1_desc: "مسؤول عن الوظائف اللاإرادية كالتنفس وضربات القلب والدفاع عن النفس. عندما تشعر بالخوف أو التوتر الشديد من الامتحان، يسيطر هذا العقل ويعلن حالة الطوارئ فيغلق \"العقل المفكر\" تماماً!",
+                brain1_tip: "الحل الذكي: طمئن عقلك بالتنفس العميق والهدوء قبل فتح الكتاب.",
+                brain2_tag: "2. العقل الثاني (المشاعر والروابط)",
+                brain2_name: "العقل العاطفي (Limbic System)",
+                brain2_desc: "مسؤول عن العواطف والمشاعر، وهو البوابة للذاكرة طويلة المدى! لهذا تتذكر بسهولة كلمات أغنية تحبها، بينما تنسى مادة تكرهها أو تكره أستاذها لأن العقل العاطفي يرفض تمريرها.",
+                brain2_tip: "الحل الذكي: اربط المادة بمشاعر إيجابية، فضول، أو مكافأة بعد الإنجاز.",
+                brain3_tag: "3. العقل الثالث (التحليل والمنطق)",
+                brain3_name: "القشرة المخية (Neocortex)",
+                brain3_desc: "هو العقل المفكر الواعي المسؤول عن المنطق، التحليل، الاستنتاج، وحل المسائل والمذاكرة. لا يعمل بكامل طاقته إلا عندما يشعر العقل الزاحف بالأمان والعقل العاطفي بالحماس!",
+                brain3_tip: "النتيجة: عندما تتناغم العقول الثلاثة تصبح قدرتك على الحفظ والفهم خارقة!",
+
+                diag_title: "مُشخّص تناغم العقول الثلاثة قبل المذاكرة",
+                diag_subtitle: "اختر حالتك الشعورية الحالية لترى أي عقل يسيطر عليك الآن وكيف تفتح بوابة القشرة المخية:",
+                state_panic_btn: "😰 مضغوط وخائف من ضيق الوقت والامتحان",
+                state_bored_btn: "😒 أشعر بالملل وأكره هذه المادة الدراسية",
+                state_harmony_btn: "✨ هادئ، أتنفس بعمق، ولدي هدف واضح",
+                bar_reptilian: "سيطرة العقل الزاحف (الخوف والتوتر)",
+                bar_limbic: "تفاعل العقل العاطفي (الحماس والارتباط)",
+                bar_neocortex: "كفاءة القشرة المخية (الاستيعاب والذاكرة)",
+                advice_panic: "⚠️ تنبيه: العقل الزاحف يسيطر الآن ويحجب القشرة المخية! توقف 3 دقائق، خذ أنفاساً عميقة، واكتب مخاوفك في (قائمة القلق) بالأسفل لتستعيد هدوءك.",
+                advice_bored: "💡 ملاحظة: العقل العاطفي مغلق بسبب الملل! حوّل الدرس إلى تحدٍّ ممتع، استخدم ألواناً وخرائط ذهنية، وضع لنفسك مكافأة صغيرة بعد إنهاء 30 دقيقة.",
+                advice_harmony: "✅ حالة مثالية! العقول الثلاثة في تناغم تام: العقل الزاحف مطمئن، العاطفي متحمس، والقشرة المخية تعمل بأقصى طاقة للاستيعاب والحفظ السريع.",
+
+                sec3_badge: "السر الثاني: الحالة الذهبية للتعلم",
+                sec3_title: "موجات ألفا (اليقظة المسترخية) وتجهيز بيئة المذاكرة",
+                sec3_desc: "يستهلك عقلك 20% من أكسجين جسمك! أفضل حالة للتعلم السريع هي \"اليقظة المسترخية\" حيث يعمل الدماغ على (موجات ألفا): جسم هادئ ومسترخٍ + عقل منتبه ومركّز.",
+                breath_title: "مدرب التنفس العميق لتفعيل موجات ألفا",
+                breath_desc: "خذ 3 أنفاس عميقة قبل بدء المذاكرة لتزويد الدماغ بالأكسجين، تهدئة العقل الزاحف، والدخول فوراً في موجات ألفا الذهبية.",
+                breath_ready: "اضغط للبدء",
+                breath_inhale: "شهيق عميق.. (أكسجين)",
+                breath_hold: "احتفظ بالأكسجين..",
+                breath_exhale: "زفير هادئ.. (أخرج التوتر)",
+                breath_start_btn: "ابدأ تمرين التنفس (ألفا)",
+                breath_stop_btn: "إيقاف التمرين",
+                env_title: "قائمة فحص بيئة المذاكرة المثالية",
+                env_desc: "تأكد من تطبيق هذه الشروط الخمسة التي ذكرها الفيديو قبل فتح أي كتاب لتهيئة عقلك للتركيز العميق:",
+                env_item_1: "١. مكان مخصص للمذاكرة ومكتب مرتب (بعيداً عن السرير!)",
+                env_item_2: "٢. إضاءة مريحة وتهوية جيدة (لتوفير 20% أكسجين للدماغ)",
+                env_item_3: "٣. إبعاد الهاتف تماماً وإغلاق الإشعارات والتلفاز",
+                env_item_4: "٤. جلسة صحية مريحة وكوب ماء بجانبك",
+                env_item_5: "٥. تجهيز ورقة جانبية لـ (قائمة القلق) لتفريغ الذهن",
+                env_banner_default: "حدد العناصر الجاهزة حولك الآن لتقييم بيئة مذاكرتك!",
+                env_banner_complete: "🌟 بيئة مثالية 100%! عقلك الآن في قمة الاستعداد للدخول في حالة اليقظة المسترخية.",
+
+                sec4_badge: "السر الثالث: اعرف شفرة عقلك",
+                sec4_title: "اختبار أنماط التعلم: هل أنت بصري، سمعي، أم حركي؟",
+                sec4_desc: "يستقبل كل إنسان المعلومات بطريقة مفضلة. أجب عن الأسئلة الثلاثة السريعة بالأسفل أو استكشف أفضل استراتيجيات المذاكرة لكل نمط، وكيف تدمج الأنماط الثلاثة معاً!",
+                vak_quiz_title: "اختبر نمط تعلمك في 30 ثانية",
+                vak_q1: "١. عندما تحاول تذكر معلومة في الامتحان، ماذا يخطر ببالك أولاً؟",
+                vak_q1_v: "👁️ شكل الصفحة، الألوان، والرسوم التوضيحية في الكتاب",
+                vak_q1_a: "🎧 صوت المعلم أو صوتي وأنا أقرأ المعلومة بصوت عالٍ",
+                vak_q1_k: "✍️ ما كتبته بيدي أو التجربة العملية وحركتي أثناء المذاكرة",
+                vak_q2: "٢. ما هي طريقتك المفضلة لفهم درس معقد وجديد؟",
+                vak_q2_v: "👁️ رسم خريطة ذهنية (Mind Map) ومشاهدة فيديو مصور",
+                vak_q2_a: "🎧 مناقشة الدرس مع زميل أو شرحه لنفسي بصوت مسموع",
+                vak_q2_k: "✍️ حل تدريبات وتطبيقات عملية والتجول في الغرفة أثناء الحفظ",
+                vak_q3: "٣. ما أكثر شيء يشتت انتباهك أثناء المذاكرة؟",
+                vak_q3_v: "👁️ الفوضى البصرية حولي على المكتب أو حركة الأشخاص",
+                vak_q3_a: "🎧 الأصوات الجانبية والضوضاء أو الحديث في الغرفة المجاورة",
+                vak_q3_k: "✍️ الجلوس الثابت لفترة طويلة دون حركة أو كتابة",
+                vak_res_badge: "نتيجتك وتوصية الكتاب",
+                vak_default_title: "اختر إجاباتك لاكتشاف نمطك المهيمن!",
+                vak_default_desc: "نصيحة ذهبية من الفيديو: حتى لو كان لديك نمط مفضل، فإن دمج الأنماط الثلاثة معاً (أن تقرأ بعينك، وتسمع بصوتك، وتلخص بيدك) يضاعف قوة الذاكرة 3 مرات!",
+                vak_res_V_title: "👁️ نمطك المهيمن: متعلم بصري (Visual Learner)",
+                vak_res_V_desc: "عقلك يلتقط الصور والألوان بسرعة فائقة! اعتمد على الخرائط الذهنية، أقلام التظليل الملونة، والرسوم التوضيحية، ثم ادمج معها القراءة بصوت مسموع والكتابة بيدك.",
+                vak_res_A_title: "🎧 نمطك المهيمن: متعلم سمعي (Auditory Learner)",
+                vak_res_A_desc: "أذناك هما بوابتك الذهبية للذاكرة! اقرأ الدروس بصوت مسموع، تقمص دور المعلم واشرح الدرس لنفسك أو لغيرك، وسجل النقاط المهمة بصوتك.",
+                vak_res_K_title: "✍️ نمطك المهيمن: متعلم حركي (Kinesthetic Learner)",
+                vak_res_K_desc: "عقلك يتعلم بالفعل والحركة! لخص بيدك في دفترك، تحرك في الغرفة أثناء الحفظ، وركز على حل الأسئلة والتطبيقات العملية.",
+                vak_card_v_title: "المتعلم البصري",
+                vak_card_v_desc: "استخدم الأقلام الملونة (Highlighters)، الخرائط الذهنية، الرسوم البيانية، والبطاقات المصورة.",
+                vak_card_a_title: "المتعلم السمعي",
+                vak_card_a_desc: "اقرأ بصوت مسموع، اشرح الدرس لغيرك (أو لنفسك كأنك المعلم)، وسجل الملخصات بصوتك.",
+                vak_card_k_title: "المتعلم الحركي",
+                vak_card_k_desc: "لخص بالكتابة اليدوية، تحرك أثناء المراجعة، واستخدم النماذج والتطبيقات العملية وحل الأسئلة.",
+
+                sec5_badge: "السر الرابع: وداعاً للنسيان",
+                sec5_title: "مختبر أسرار الذاكرة القوية (التقنيات الأربع)",
+                sec5_desc: "الذاكرة ليست \"صندوقاً يمتلئ\" بل هي عضلة تقوى بالتدريب! جرب بنفسك التقنيات الأربع التي تحول المعلومات من الذاكرة قصيرة المدى إلى الذاكرة الدائمة:",
+                mem_tab1_btn: "1. الربط (Association)",
+                mem_tab2_btn: "2. التصور (Visualization)",
+                mem_tab3_btn: "3. التقسيم (Chunking)",
+                mem_tab4_btn: "4. التكرار الذكي (Spaced Repetition)",
+
+                mem1_tag: "التقنية الأولى: بناء الجسور العصبية",
+                mem1_title: "الربط (Association): لا تحفظ معلومة يتيمة!",
+                mem1_desc: "الدماغ البشري يكره المعلومات المعزولة، لكنه يبدع في تذكر العلاقات. عندما تتعلم معلومة جديدة، اسأل نفسك فوراً: \"بماذا تشبه هذه المعلومة شيئاً أعرفه مسبقاً في حياتي اليومية؟\"",
+                mem1_ex_title: "💡 مثال تطبيقي:",
+                mem1_ex_body: "بدلاً من حفظ وظيفة \"الميتوكوندريا\" بصمّها، اربطها بـ \"محطة توليد الكهرباء في مدينتك\" أو \"بطارية هاتفك المحمول\". الآن لن تنساها أبداً!",
+                mem1_tool_title: "🛠️ صانع الروابط الذهنية التفاعلي",
+                mem1_inp1_lbl: "المعلومة الجديدة الصعبة:",
+                mem1_inp2_lbl: "شيء مألوف تعرفه جيداً:",
+                mem1_btn_create: "ابنِ الجسر العصبي الآن",
+                mem1_sample_a: "القشرة المخية",
+                mem1_sample_b: "المعالج الذكي (CPU)",
+
+                mem2_tag: "التقنية الثانية: العقل يفكر بالصور",
+                mem2_title: "التصور الذهني (Visualization): حوّل الكلمات إلى فيلم!",
+                mem2_desc: "عندما أقول لك كلمة \"تفاحة\"، لا يظهر في عقلك حروف (ت - ف - ا - ح - ة)، بل تظهر صورة التفاحة ولونها وطعمها! حوّل أي فقرة دراسية إلى مشهد سينمائي حي، ملون، وحتى غريب أو مضحك لأن الدماغ يعشق الصور غير المألوفة.",
+                mem2_tool_title: "🎬 تجربة: النص الجاف مقابل الصورة الذهنية الحية",
+                mem2_boring_lbl: "❌ نص جاف (ينسى سريعاً):",
+                mem2_boring_txt: "\"العقل الزاحف يغلق القشرة المخية عند الشعور بالخوف أثناء الامتحان.\"",
+                mem2_vivid_lbl: "✅ صورة ذهنية حية (لا تُنسى):",
+                mem2_vivid_txt: "\"تخيل ديناصوراً صغيراً يرتدي خوذة حارس أمن، يطفئ أضواء غرفة الكمبيوتر في رأسك بمجرد أن تصرخ!\"",
+
+                mem3_tag: "التقنية الثالثة: سعة الذاكرة القصيرة (7±2)",
+                mem3_title: "التقسيم (Chunking): قسّم الفيل إلى لقيمات صغيرة!",
+                mem3_desc: "الذاكرة قصيرة المدى لا تستطيع الاحتفاظ بأكثر من 5 إلى 9 عناصر متفرقة في وقت واحد. لكن إذا جمعتها في مجموعات ذات معنى (Chunks)، يتعامل معها عقلك كعنصر واحد فقط!",
+                mem3_game_title: "🧩 تجربة التقسيم الفورية",
+                mem3_new_num: "رقم جديد ↻",
+                mem3_raw_lbl: "بدون تقسيم (12 رقماً منفصلاً - صعب الحفظ):",
+                mem3_chunked_lbl: "بالتقسيم الذكي (3 مجموعات فقط - يحفظ في ثانية!):",
+
+                mem4_tag: "التقنية الرابعة: هزيمة منحنى النسيان",
+                mem4_title: "التكرار المتباعد الذكي (Spaced Repetition)",
+                mem4_desc: "تكرار الجملة 20 مرة في نفس الليلة متعب وقليل الفائدة! السر هو مراجعة المعلومة على فترات متباعدة قبل أن ينساها الدماغ: بعد يوم، ثم 3 أيام، ثم 7 أيام، ثم 14 يوماً، ثم 30 يوماً.",
+                mem4_gen_title: "📅 مولّد جدول المراجعة المتباعدة للدرس",
+                mem4_copy_btn: "نسخ الجدول",
+
+                sec6_badge: "السر الخامس: إدارة الوقت بذكاء",
+                sec6_title: "قانون البدايات والنهايات ومؤقت الجلسات الذكية",
+                sec6_desc: "يتذكر العقل البشري دائماً بداية جلسة المذاكرة ونهايتها بأعلى كفاءة، بينما يضيع المنتصف في \"وادي النسيان\"! لذلك فإن تقسيم المذاكرة إلى جلسات (30-45 دقيقة) يصنع لك عدة بدايات وعدة نهايات!",
+                curve_title: "مقارنة منحنى التركيز والتذكر (3 ساعات)",
+                curve_btn_1: "جلسة متواصلة (3 ساعات)",
+                curve_btn_2: "جلسات ذكية (4 × 40 د)",
+                curve_smart_caption: "✨ 4 جلسات ذكية = 4 بدايات قوية + 4 نهايات قوية + استراحات تجدد الأكسجين والتركيز (تذكر يفوق 85%)!",
+                curve_marathon_caption: "⚠️ جلسة 3 ساعات متواصلة = بداية واحدة ونهاية واحدة، وساعتان في المنتصف تضيعان في (وادي النسيان والإرهاق)!",
+                primacy_title: "تأثير الأولوية (البدايات):",
+                primacy_desc: "العقل في قمة نشاطه في أول 15 دقيقة من كل جلسة.",
+                recency_title: "تأثير الحداثة (النهايات):",
+                recency_desc: "آخر 10 دقائق تترسخ بقوة؛ خصصها لمراجعة سريعة لما قرأته!",
+
+                timer_title: "⏱️ مؤقت الجلسات الذكية (30 - 45 دقيقة)",
+                timer_p30: "30 د مذاكرة",
+                timer_p45: "45 د مذاكرة",
+                timer_p5: "5 د استراحة",
+                timer_p10: "10 د استراحة",
+                timer_mode_study: "جلسة تركيز ذكية",
+                timer_mode_break: "استراحة تجديد الأكسجين",
+                timer_start: "ابدأ الجلسة",
+                timer_pause: "إيقاف مؤقت",
+
+                sec7_badge: "السر السادس: التركيز الخارق",
+                sec7_title: "محاربة المشتتات وخزنة \"قائمة القلق\" (Worry List)",
+                sec7_desc: "ينقسم التشتت إلى مشتتات خارجية (الهاتف، التلفاز، الضوضاء) ومشتتات داخلية (الإرهاق، قلة النوم، والمشاكل الشخصية). إليك الأداة السحرية التي أوصى بها الكتاب لتفريغ المشتتات الداخلية فوراً!",
+                worry_title: "خزنة \"قائمة القلق\" (Worry List Pad)",
+                worry_subtitle: "كلما خطرت ببالك مشكلة أو مشوار أثناء المذاكرة، اكتبه هنا واقفل عليه لتتعامل معه بعد انتهاء الجلسة!",
+                vault_lock_btn: "اقفل على القلق أثناء المذاكرة",
+                vault_unlock_btn: "فتح الخزنة بعد المذاكرة",
+                worry_add_btn: "أفرغ الفكرة",
+                vault_locked_title: "جميع أفكارك ومهامك محفوظة بأمان في الخزنة!",
+                vault_locked_desc: "عقلك الآن حر 100% للتركيز في المذاكرة. يمكنك فتح الخزنة بعد انتهاء الجلسة.",
+
+                steps_title: "الخلاصة: 5 خطوات عملية للبدء اليوم",
+                steps_subtitle: "خطة العمل اليومية من كتاب \"ادرس بذكاء وليس بجهد\"",
+                step_1_txt: "<strong>هيئ بيئتك ونفسك:</strong> مكان مرتب، إضاءة وتهوية جيدة، و3 أنفاس عميقة للدخول في موجات ألفا.",
+                step_2_txt: "<strong>ناغم عقولك الثلاثة:</strong> اطرد الخوف والتوتر، واصنع شغفاً وهدفاً واضحاً لكل جلسة مذاكرة.",
+                step_3_txt: "<strong>ادمج الحواس الثلاث:</strong> اقرأ بعينك (خرائط وألوان)، اسمع بصوتك (اشرح لنفسك)، واكتب بيدك.",
+                step_4_txt: "<strong>طبق أسرار الذاكرة الـ 4:</strong> الربط، التصور الذهني، التقسيم، والتكرار المتباعد الذكي.",
+                step_5_txt: "<strong>ذاكر في جلسات 30-45 دقيقة:</strong> استثمر قانون البدايات والنهايات وأفرغ المشتتات في قائمة القلق.",
+
+                footer_book_ref: "مبني على محتوى فيديو \"أسرار العقل والذاكرة القوية\" وملخص كتاب \"ادرس بذكاء وليس بجهد\"",
+                footer_signature: "تصميم محمد عوض خير بمساعدة Gemini 4 Argon",
+                footer_video_link: "رابط الفيديو المرجعي على يوتيوب",
+                footer_interactive_tag: "تطبيق ويب تعليمي تفاعلي ثنائي اللغة"
+            },
+            en: {
+                nav_title: "Study Smarter, Not Harder",
+                nav_subtitle: "Secrets of the Mind & Strong Memory",
+                nav_brains: "The 3 Brains",
+                nav_alpha: "Alpha Waves",
+                nav_vak: "Learning Styles",
+                nav_memory: "4 Memory Secrets",
+                nav_timer: "Beginnings & Endings",
+                nav_worry: "Worry List",
+                mastery_label: "Study Readiness:",
+                lang_btn: "العربية",
+
+                hero_badge: "Interactive Summary of Kevin Paul's 'Study Smarter, Not Harder'",
+                hero_title_1: "Secrets of the Mind ",
+                hero_title_2: "& Super Memory",
+                hero_desc: "Do you spend endless hours studying only for information to evaporate in the exam room? The problem isn't your brain—it's that nobody taught you 'how to learn'. Discover how to double your comprehension in half the time.",
+                stat_1_val: "2X Retention",
+                stat_1_lbl: "In Half the Time",
+                stat_2_val: "20% Oxygen",
+                stat_2_lbl: "Brain Fuel & Alpha State",
+                stat_3_val: "4 Techniques",
+                stat_3_lbl: "For Permanent Memory",
+                btn_start_journey: "Start Interactive Journey",
+                btn_watch_video: "Watch Original Video",
+
+                sim_title: "Simulator: Study Harder vs. Smarter",
+                sim_subtitle: "Drag the slider to compare time spent & exam recall",
+                sim_slider_label: "Traditional Daily Study Hours:",
+                sim_hard_title: "Hard Way (Rote Cramming)",
+                sim_smart_title: "Smart Way (Book Secrets)",
+                sim_time_spent: "Time Spent:",
+                sim_retention: "Exam Recall Rate:",
+                sim_weekly_saved_lbl: "Free time saved weekly with higher grades:",
+
+                sec2_badge: "Secret #1 from the Video",
+                sec2_title: "Inside Your Head Are Three Brains.. How to Align Them?",
+                sec2_desc: "Your brain operates on 3 interconnected levels. When you fear exams or hate a subject, your thinking brain shuts down! Click each brain to explore its role and test your current state.",
+                brain1_tag: "1. First Brain (Survival & Safety)",
+                brain1_name: "Reptilian Brain",
+                brain1_desc: "Controls automatic survival functions like breathing, heartbeat, and fight-or-flight. When exam panic hits, this brain declares an emergency and shuts down your 'Thinking Brain' completely!",
+                brain1_tip: "Smart Fix: Calm your survival brain with deep breathing before opening your book.",
+                brain2_tag: "2. Second Brain (Emotions & Bonds)",
+                brain2_name: "Emotional Brain (Limbic System)",
+                brain2_desc: "Governs emotions and acts as the gatekeeper to long-term memory! That's why you easily remember lyrics to a song you love, but forget a subject or teacher you dislike.",
+                brain2_tip: "Smart Fix: Link the subject to curiosity, positive feelings, or a post-study reward.",
+                brain3_tag: "3. Third Brain (Logic & Analysis)",
+                brain3_name: "Thinking Brain (Neocortex)",
+                brain3_desc: "The conscious thinking center for logic, analysis, problem-solving, and studying. It only performs at 100% when the Reptilian brain feels safe and the Emotional brain feels engaged!",
+                brain3_tip: "Result: When all 3 brains harmonize, your comprehension and memory become unstoppable!",
+
+                diag_title: "Pre-Study 3-Brain Harmony Diagnostic",
+                diag_subtitle: "Select your current mood to see which brain is dominating and how to unlock your Neocortex:",
+                state_panic_btn: "😰 Stressed & panicking about exams and time",
+                state_bored_btn: "😒 Bored and dreading this study subject",
+                state_harmony_btn: "✨ Calm, breathing deeply, with a clear goal",
+                bar_reptilian: "Reptilian Brain Dominance (Fear & Stress)",
+                bar_limbic: "Limbic Brain Engagement (Interest & Emotion)",
+                bar_neocortex: "Neocortex Efficiency (Comprehension & Recall)",
+                advice_panic: "⚠️ Alert: Your Reptilian Brain is hijacking your energy and blocking the Neocortex! Pause for 3 minutes, take deep breaths, and dump your fears into the Worry List below.",
+                advice_bored: "💡 Note: Your Emotional Brain is disengaged due to boredom! Turn the chapter into a game, use colorful mind maps, and promise yourself a reward after 30 minutes.",
+                advice_harmony: "✅ Golden State! All 3 brains are aligned: Reptilian brain is calm, Limbic brain is motivated, and your Neocortex is operating at peak capacity.",
+
+                sec3_badge: "Secret #2: The Golden Learning State",
+                sec3_title: "Alpha Waves (Relaxed Alertness) & Study Environment",
+                sec3_desc: "Your brain consumes 20% of your body's oxygen! Peak learning happens in 'Relaxed Alertness' (Alpha Waves): a calm, relaxed body combined with a sharp, focused mind.",
+                breath_title: "Deep Breathing Trainer for Alpha Waves",
+                breath_desc: "Take 3 deep breaths before studying to oxygenate your brain, calm the Reptilian brain, and enter Alpha waves immediately.",
+                breath_ready: "Tap to Start",
+                breath_inhale: "Deep Inhale.. (Oxygen)",
+                breath_hold: "Hold Gently..",
+                breath_exhale: "Slow Exhale.. (Release Stress)",
+                breath_start_btn: "Start Alpha Breathing",
+                breath_stop_btn: "Stop Exercise",
+                env_title: "Ideal Study Environment Checklist",
+                env_desc: "Check off these 5 essential conditions from the video before opening your book to prime your brain for deep focus:",
+                env_item_1: "1. Dedicated, tidy desk space (Away from the bed!)",
+                env_item_2: "2. Good lighting & fresh air (Providing 20% oxygen to the brain)",
+                env_item_3: "3. Phone out of sight & TV/notifications turned off",
+                env_item_4: "4. Comfortable upright posture & a glass of water nearby",
+                env_item_5: "5. Side notepad ready for your 'Worry List' brain-dump",
+                env_banner_default: "Check the items ready around you to score your study environment!",
+                env_banner_complete: "🌟 100% Optimal Environment! Your brain is fully primed for Relaxed Alertness.",
+
+                sec4_badge: "Secret #3: Decode Your Brain",
+                sec4_title: "VAK Learning Style Quiz: Visual, Auditory, or Kinesthetic?",
+                sec4_desc: "Everyone absorbs information through a preferred channel. Answer the 3 quick questions below to discover your dominant style and learn how to combine all three!",
+                vak_quiz_title: "30-Second Learning Style Quiz",
+                vak_q1: "1. When recalling info in an exam, what comes to mind first?",
+                vak_q1_v: "👁️ The page layout, colors, and diagrams in the book",
+                vak_q1_a: "🎧 The teacher's voice or my own voice reading it aloud",
+                vak_q1_k: "✍️ Notes I wrote by hand or practical exercises I solved",
+                vak_q2: "2. How do you prefer to tackle a complex new chapter?",
+                vak_q2_v: "👁️ Drawing a colorful Mind Map and watching visual diagrams",
+                vak_q2_a: "🎧 Discussing it or explaining it out loud to myself/others",
+                vak_q2_k: "✍️ Solving hands-on problems and pacing while reviewing",
+                vak_q3: "3. What distracts you the most while studying?",
+                vak_q3_v: "👁️ Visual clutter on my desk or people moving around",
+                vak_q3_a: "🎧 Background noise or conversations nearby",
+                vak_q3_k: "✍️ Sitting completely still for too long without action",
+                vak_res_badge: "Your Result & Book Strategy",
+                vak_default_title: "Select your answers to reveal your dominant style!",
+                vak_default_desc: "Golden Rule from the Video: Even with a dominant style, combining ALL 3 senses (See it with colors, Say it aloud, Write it by hand) triples your memory power!",
+                vak_res_V_title: "👁️ Dominant Style: Visual Learner",
+                vak_res_V_desc: "Your brain locks onto images and spatial layouts! Use Mind Maps, color-coded highlighters, and diagrams—then boost it by reading aloud and writing summaries.",
+                vak_res_A_title: "🎧 Dominant Style: Auditory Learner",
+                vak_res_A_desc: "Your ears are your super-channel! Read key concepts aloud, pretend you're the teacher explaining the lesson, and record voice summaries.",
+                vak_res_K_title: "✍️ Dominant Style: Kinesthetic Learner",
+                vak_res_K_desc: "You learn best by doing and moving! Summarize by hand, pace around while memorizing, and jump straight into practice problems.",
+                vak_card_v_title: "Visual Learner",
+                vak_card_v_desc: "Use color highlighters, Mind Maps, flowcharts, and visual flashcards.",
+                vak_card_a_title: "Auditory Learner",
+                vak_card_a_desc: "Read aloud, teach the concept to someone else, and use voice notes.",
+                vak_card_k_title: "Kinesthetic Learner",
+                vak_card_k_desc: "Write summaries by hand, walk while reviewing, and solve practice tests.",
+
+                sec5_badge: "Secret #4: Never Forget Again",
+                sec5_title: "The 4 Memory Secrets Lab",
+                sec5_desc: "Memory isn't a 'full box'—it's a muscle! Practice the 4 techniques that move knowledge from short-term memory into permanent long-term storage:",
+                mem_tab1_btn: "1. Association",
+                mem_tab2_btn: "2. Visualization",
+                mem_tab3_btn: "3. Chunking",
+                mem_tab4_btn: "4. Spaced Repetition",
+
+                mem1_tag: "Technique #1: Build Neural Bridges",
+                mem1_title: "Association: Never Memorize an Isolated Fact!",
+                mem1_desc: "The brain struggles with isolated data but excels at connections. Whenever you learn something new, immediately ask: 'How does this relate to something I already know well?'",
+                mem1_ex_title: "💡 Practical Example:",
+                mem1_ex_body: "Instead of rote-memorizing 'Mitochondria', link it to 'your city's power plant' or 'your phone battery'. Now it's anchored forever!",
+                mem1_tool_title: "🛠️ Interactive Neural Bridge Builder",
+                mem1_inp1_lbl: "New Difficult Concept:",
+                mem1_inp2_lbl: "Familiar Concept You Know:",
+                mem1_btn_create: "Build Neural Bridge Now",
+                mem1_sample_a: "Neocortex",
+                mem1_sample_b: "Computer CPU",
+
+                mem2_tag: "Technique #2: The Brain Thinks in Pictures",
+                mem2_title: "Visualization: Turn Words into a Vivid Mental Movie!",
+                mem2_desc: "When you hear the word 'Apple', you don't see the letters A-P-P-L-E—you see a red apple! Turn dry textbook paragraphs into vivid, colorful, exaggerated mental scenes.",
+                mem2_tool_title: "🎬 Experiment: Dry Text vs. Vivid Mental Movie",
+                mem2_boring_lbl: "❌ Dry Text (Quickly Forgotten):",
+                mem2_boring_txt: "\"The Reptilian brain shuts down the Neocortex when experiencing exam fear.\"",
+                mem2_vivid_lbl: "✅ Vivid Mental Movie (Unforgettable):",
+                mem2_vivid_txt: "\"Picture a tiny dinosaur in a security helmet pulling the main power plug on your brain's supercomputer when you panic!\"",
+
+                mem3_tag: "Technique #3: Short-Term Capacity (7±2)",
+                mem3_title: "Chunking: Break the Elephant into Bite-Sized Pieces!",
+                mem3_desc: "Short-term memory can only hold 5 to 9 isolated items at once. By grouping information into meaningful 'Chunks', your brain treats a whole group as a single item!",
+                mem3_game_title: "🧩 Instant Chunking Experiment",
+                mem3_new_num: "New Number ↻",
+                mem3_raw_lbl: "Unchunked (12 separate digits - Hard to recall):",
+                mem3_chunked_lbl: "Smart Chunking (3 meaningful groups - Instant recall!):",
+
+                mem4_tag: "Technique #4: Defeat the Forgetting Curve",
+                mem4_title: "Smart Spaced Repetition",
+                mem4_desc: "Repeating a sentence 20 times in one night causes fatigue with low long-term retention. Instead, review at spaced intervals right before forgetting: Day 1, Day 3, Day 7, Day 14, and Day 30.",
+                mem4_gen_title: "📅 Spaced Repetition Schedule Generator",
+                mem4_copy_btn: "Copy Schedule",
+
+                sec6_badge: "Secret #5: Smart Time Management",
+                sec6_title: "Law of Beginnings & Endings + Smart Session Timer",
+                sec6_desc: "Your brain remembers the BEGINNING and END of a study session best, while the middle sinks into a 'Forgetting Valley'. Studying in 30–45 minute blocks creates multiple beginnings and endings!",
+                curve_title: "Focus & Retention Curve Comparison (3 Hours)",
+                curve_btn_1: "Continuous Marathon (3 hrs)",
+                curve_btn_2: "Smart Sessions (4 × 40m)",
+                curve_smart_caption: "✨ 4 Smart Sessions = 4 Strong Beginnings + 4 Strong Endings + Oxygen-renewing breaks (>85% recall)!",
+                curve_marathon_caption: "⚠️ 3-Hour Continuous Marathon = Only 1 beginning and 1 end, with 2 middle hours lost in the Forgetting Valley!",
+                primacy_title: "Primacy Effect (Beginnings):",
+                primacy_desc: "Your brain is freshest during the first 15 minutes of a session.",
+                recency_title: "Recency Effect (Endings):",
+                recency_desc: "The last 10 minutes stick strongly—use them for a quick recap!",
+
+                timer_title: "⏱️ Smart Session Timer (30 - 45 Min)",
+                timer_p30: "30m Study",
+                timer_p45: "45m Study",
+                timer_p5: "5m Break",
+                timer_p10: "10m Break",
+                timer_mode_study: "Smart Focus Session",
+                timer_mode_break: "Oxygen & Brain Break",
+                timer_start: "Start Session",
+                timer_pause: "Pause",
+
+                sec7_badge: "Secret #6: Laser Focus",
+                sec7_title: "Beating Distractions & The 'Worry List' Vault",
+                sec7_desc: "Distractions are either External (Phone, TV, Noise) or Internal (Fatigue, lack of sleep, personal worries). Use the book's 'Worry List' technique below to clear internal distractions instantly!",
+                worry_title: "The 'Worry List' Brain-Dump Vault",
+                worry_subtitle: "Whenever a worry, errand, or random thought pops into your head while studying, write it here and lock it away until your session ends!",
+                vault_lock_btn: "Lock Worries During Study",
+                vault_unlock_btn: "Unlock Vault After Study",
+                worry_add_btn: "Dump Thought",
+                vault_locked_title: "All your worries & tasks are safely locked in the vault!",
+                vault_locked_desc: "Your mind is now 100% free to focus on studying. Unlock the vault after your session.",
+
+                steps_title: "Summary: 5 Daily Action Steps",
+                steps_subtitle: "Your daily blueprint from 'Study Smarter, Not Harder'",
+                step_1_txt: "<strong>Prime Environment & Body:</strong> Tidy desk, good lighting/air, and 3 deep breaths to enter Alpha waves.",
+                step_2_txt: "<strong>Align Your 3 Brains:</strong> Eliminate panic, spark curiosity, and set a clear goal for every session.",
+                step_3_txt: "<strong>Combine All 3 Senses:</strong> See it (colors/mind maps), Say it aloud (teach it), and Write it by hand.",
+                step_4_txt: "<strong>Apply the 4 Memory Secrets:</strong> Association, Visualization, Chunking, and Spaced Repetition.",
+                step_5_txt: "<strong>Study in 30–45m Blocks:</strong> Leverage Beginnings & Endings and dump distractions in your Worry List.",
+
+                footer_book_ref: "Based on 'Secrets of the Mind & Strong Memory' video and 'Study Smarter, Not Harder'",
+                footer_signature: "Designed by Mohamed Awad Khair with the help of Gemini 4 Argon — تصميم محمد عوض خير بمساعدة Gemini 4 Argon",
+                footer_video_link: "Original YouTube Video Reference",
+                footer_interactive_tag: "Bilingual Interactive Educational Web App"
+            }
+        };
+
+        // --- 2. GLOBAL APPLICATION STATE ---
+        let currentLang = 'ar';
+        let currentBrainState = 'harmony';
+        let breathInterval = null;
+        let isBreathing = false;
+        let breathCycles = 0;
+        let vakAnswers = [null, null, null];
+        let activeMemoryTab = 1;
+        let currentCurveMode = 'smart';
+
+        // Smart Timer State
+        let timerTotalSeconds = 30 * 60;
+        let timerRemainingSeconds = 30 * 60;
+        let timerInterval = null;
+        let isTimerRunning = false;
+        let timerMode = 'study';
+
+        // Worry List State
+        let worryItems = [
+            { id: 1, textAr: "الرد على رسائل الواتساب بعد انتهاء جلسة المذاكرة", textEn: "Reply to WhatsApp messages after finishing this study session", done: false },
+            { id: 2, textAr: "ترتيب جدول مراجعة الأسبوع القادم الساعة 8 مساءً", textEn: "Organize next week's review schedule at 8 PM", done: false }
+        ];
+        let isVaultLocked = false;
+
+        // --- 3. LANGUAGE & THEME SWITCHING ---
+        function toggleLanguage() {
+            currentLang = currentLang === 'ar' ? 'en' : 'ar';
+            const htmlEl = document.documentElement;
+            htmlEl.lang = currentLang;
+            htmlEl.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
+
+            // Update static data-i18n elements
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (i18n[currentLang][key]) {
+                    el.innerHTML = i18n[currentLang][key];
+                }
+            });
+
+            // Update navbar titles & button text
+            document.getElementById('nav-title').textContent = i18n[currentLang].nav_title;
+            document.getElementById('nav-subtitle').textContent = i18n[currentLang].nav_subtitle;
+            document.getElementById('lang-btn-text').textContent = i18n[currentLang].lang_btn;
+            document.getElementById('footer-signature').textContent = i18n[currentLang].footer_signature;
+
+            // Update placeholders
+            document.getElementById('assoc-new-input').placeholder = currentLang === 'ar' ? 'مثال: التيار الكهربائي' : 'e.g., Electric Current';
+            document.getElementById('assoc-old-input').placeholder = currentLang === 'ar' ? 'مثال: تدفق الماء في الأنبوب' : 'e.g., Water flowing in a pipe';
+            document.getElementById('sr-topic-input').placeholder = currentLang === 'ar' ? 'اكتب اسم الدرس الذي ذاكرته اليوم...' : 'Enter the topic you studied today...';
+            document.getElementById('timer-goal-input').placeholder = currentLang === 'ar' ? 'ما هو هدفك المحدد في هذه الـ 30 دقيقة؟' : 'What is your specific goal for this session?';
+            document.getElementById('worry-input').placeholder = currentLang === 'ar' ? 'اكتب أي فكرة أو قلق يشغل بالك الآن لتفرغ عقلك...' : 'Type any worry or task occupying your mind right now...';
+
+            // Refresh dynamic components
+            updateStudySimulator();
+            setBrainState(currentBrainState);
+            updateEnvChecklist();
+            evaluateVakQuiz();
+            generateSpacedSchedule();
+            setCurveMode(currentCurveMode);
+            renderWorryList();
+            updateTimerUI();
+
+            showToast(currentLang === 'ar' ? 'تم التبديل إلى اللغة العربية 🇪🇬' : 'Switched to English Mode 🌐');
+        }
+
+        function toggleTheme() {
+            const htmlEl = document.documentElement;
+            const isDark = htmlEl.classList.toggle('dark');
+            const icon = document.getElementById('theme-icon');
+            icon.className = isDark ? 'fa-solid fa-sun text-base' : 'fa-solid fa-moon text-base text-indigo-600';
+            showToast(
+                currentLang === 'ar'
+                    ? (isDark ? 'تم تفعيل الوضع الليلي المريح للعين 🌙' : 'تم تفعيل الوضع النهاري المشرق ☀️')
+                    : (isDark ? 'Dark Mode Activated 🌙' : 'Light Mode Activated ☀️')
+            );
+        }
+
+        // --- 4. CUSTOM TOAST NOTIFICATION ---
+        function showToast(message) {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            toast.className = 'px-4 py-3 rounded-2xl bg-slate-900 dark:bg-white text-white dark:text-slate-900 text-xs sm:text-sm font-bold shadow-xl border border-slate-700 dark:border-slate-200 flex items-center gap-2.5 transition-all duration-300';
+            toast.innerHTML = `<i class="fa-solid fa-circle-check text-emerald-400 dark:text-emerald-600"></i><span>${message}</span>`;
+            container.appendChild(toast);
+            setTimeout(() => {
+                toast.style.opacity = '0';
+                toast.style.transform = 'translateY(10px)';
+                setTimeout(() => toast.remove(), 300);
+            }, 2800);
+        }
+
+        // --- 5. MODULE 1: STUDY SIMULATOR ---
+        function updateStudySimulator() {
+            const hours = parseInt(document.getElementById('sim-hours-slider').value, 10);
+            const smartHours = (hours / 2).toFixed(1).replace('.0', '');
+            const savedWeekly = Math.round((hours - hours / 2) * 7);
+            const hardRetention = Math.max(18, 35 - hours * 1.5);
+
+            if (currentLang === 'ar') {
+                document.getElementById('sim-hours-display').textContent = `${hours} ساعات`;
+                document.getElementById('sim-hard-time').textContent = `${hours} ساعات متواصلة`;
+                document.getElementById('sim-smart-time').textContent = `${smartHours} ساعات فقط!`;
+                document.getElementById('sim-hard-ret').textContent = `~${Math.round(hardRetention)}% (نسيان وتوتر)`;
+                document.getElementById('sim-smart-ret').textContent = `~90% (استيعاب مضاعف)`;
+                document.getElementById('sim-weekly-saved').textContent = `${savedWeekly} ساعة / أسبوع`;
+            } else {
+                document.getElementById('sim-hours-display').textContent = `${hours} Hours`;
+                document.getElementById('sim-hard-time').textContent = `${hours} hrs marathon`;
+                document.getElementById('sim-smart-time').textContent = `Only ${smartHours} hrs!`;
+                document.getElementById('sim-hard-ret').textContent = `~${Math.round(hardRetention)}% (High forgetting)`;
+                document.getElementById('sim-smart-ret').textContent = `~90% (2x Comprehension)`;
+                document.getElementById('sim-weekly-saved').textContent = `${savedWeekly} hrs / week`;
+            }
+            document.getElementById('sim-hard-bar').style.width = `${hardRetention}%`;
+        }
+
+        // --- 6. MODULE 2: TRIUNE BRAIN DIAGNOSTIC ---
+        function selectBrainCard(num) {
+            if (num === 1) setBrainState('panic');
+            if (num === 2) setBrainState('bored');
+            if (num === 3) setBrainState('harmony');
+        }
+
+        function setBrainState(state) {
+            currentBrainState = state;
+            const states = {
+                panic: { rep: 90, lim: 25, neo: 15, adviceKey: 'advice_panic', color: 'rose' },
+                bored: { rep: 30, lim: 15, neo: 35, adviceKey: 'advice_bored', color: 'amber' },
+                harmony: { rep: 10, lim: 92, neo: 96, adviceKey: 'advice_harmony', color: 'emerald' }
+            };
+            const cfg = states[state];
+
+            document.getElementById('val-reptilian').textContent = cfg.rep + '%';
+            document.getElementById('bar-reptilian').style.width = cfg.rep + '%';
+
+            document.getElementById('val-limbic').textContent = cfg.lim + '%';
+            document.getElementById('bar-limbic').style.width = cfg.lim + '%';
+
+            document.getElementById('val-neocortex').textContent = cfg.neo + '%';
+            document.getElementById('bar-neocortex').style.width = cfg.neo + '%';
+
+            const adviceBox = document.getElementById('diag-advice-box');
+            adviceBox.textContent = i18n[currentLang][cfg.adviceKey];
+
+            // Highlight active state button
+            ['panic', 'bored', 'harmony'].forEach(s => {
+                const btn = document.getElementById(`state-btn-${s}`);
+                if (s === state) {
+                    btn.className = 'text-start px-4 py-3 rounded-2xl border-2 border-indigo-500 bg-indigo-500/10 text-indigo-700 dark:text-indigo-300 transition-all flex items-center justify-between text-xs sm:text-sm font-bold';
+                } else {
+                    btn.className = 'text-start px-4 py-3 rounded-2xl border border-slate-200 dark:border-slate-700 hover:border-indigo-400 transition-all flex items-center justify-between text-xs sm:text-sm font-bold';
+                }
+            });
+        }
+
+        // --- 7. MODULE 3: ALPHA BREATHING & ENVIRONMENT CHECKLIST ---
+        function toggleBreathingExercise() {
+            const circle = document.getElementById('breath-circle');
+            const statusText = document.getElementById('breath-status-text');
+            const timerNum = document.getElementById('breath-timer-num');
+            const btnLabel = document.getElementById('breath-btn-label');
+            const btnIcon = document.getElementById('breath-btn-icon');
+
+            if (isBreathing) {
+                clearInterval(breathInterval);
+                isBreathing = false;
+                circle.style.transform = 'scale(1)';
+                statusText.textContent = i18n[currentLang].breath_ready;
+                timerNum.textContent = '4-4-6';
+                btnLabel.textContent = i18n[currentLang].breath_start_btn;
+                btnIcon.className = 'fa-solid fa-play';
+                return;
+            }
+
+            isBreathing = true;
+            btnLabel.textContent = i18n[currentLang].breath_stop_btn;
+            btnIcon.className = 'fa-solid fa-stop';
+
+            let step = 0; // 0-3 inhale, 4-7 hold, 8-13 exhale
+            const runStep = () => {
+                const phaseSec = step % 14;
+                if (phaseSec < 4) {
+                    statusText.textContent = i18n[currentLang].breath_inhale;
+                    timerNum.textContent = (4 - phaseSec) + 's';
+                    circle.style.transform = 'scale(1.38)';
+                } else if (phaseSec < 8) {
+                    statusText.textContent = i18n[currentLang].breath_hold;
+                    timerNum.textContent = (8 - phaseSec) + 's';
+                    circle.style.transform = 'scale(1.38)';
+                } else {
+                    statusText.textContent = i18n[currentLang].breath_exhale;
+                    timerNum.textContent = (14 - phaseSec) + 's';
+                    circle.style.transform = 'scale(0.92)';
+                }
+
+                if (phaseSec === 13) {
+                    breathCycles = Math.min(3, breathCycles + 1);
+                    document.getElementById('breath-cycle-badge').textContent =
+                        currentLang === 'ar' ? `${breathCycles} / 3 دورات` : `${breathCycles} / 3 Cycles`;
+                    if (breathCycles === 3) {
+                        showToast(currentLang === 'ar' ? 'رائع! دماغك الآن مشبع بالأكسجين وفي حالة موجات ألفا 🧠✨' : 'Awesome! Your brain is oxygenated and in Alpha state 🧠✨');
+                    }
+                }
+                step++;
+            };
+
+            runStep();
+            breathInterval = setInterval(runStep, 1000);
+        }
+
+        function updateEnvChecklist() {
+            const checks = document.querySelectorAll('.env-check');
+            let checkedCount = 0;
+            checks.forEach(c => { if (c.checked) checkedCount++; });
+            const pct = Math.round((checkedCount / checks.length) * 100);
+
+            document.getElementById('env-score-text').textContent = pct + '%';
+            document.getElementById('env-progress-bar').style.width = pct + '%';
+
+            const banner = document.getElementById('env-status-banner');
+            if (pct === 100) {
+                banner.className = 'mt-4 p-3 rounded-xl bg-emerald-500/15 border border-emerald-500/30 text-xs font-bold text-center text-emerald-600 dark:text-emerald-400';
+                banner.textContent = i18n[currentLang].env_banner_complete;
+            } else {
+                banner.className = 'mt-4 p-3 rounded-xl bg-slate-100 dark:bg-slate-800 text-xs font-bold text-center text-slate-600 dark:text-slate-300';
+                banner.textContent = i18n[currentLang].env_banner_default;
+            }
+        }
+
+        // --- 8. MODULE 4: VAK LEARNING STYLE QUIZ ---
+        function selectVakAnswer(qIndex, style) {
+            vakAnswers[qIndex] = style;
+            ['V', 'A', 'K'].forEach(s => {
+                const btn = document.getElementById(`vak-q${qIndex}-${s}`);
+                if (s === style) {
+                    btn.className = 'vak-opt text-start p-2.5 rounded-xl border-2 border-indigo-500 bg-indigo-500/10 font-bold text-xs sm:text-sm transition-all';
+                } else {
+                    btn.className = 'vak-opt text-start p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 text-xs sm:text-sm hover:border-indigo-500 transition-all';
+                }
+            });
+            evaluateVakQuiz();
+        }
+
+        function evaluateVakQuiz() {
+            const counts = { V: 0, A: 0, K: 0 };
+            let answered = 0;
+            vakAnswers.forEach(ans => {
+                if (ans) {
+                    counts[ans]++;
+                    answered++;
+                }
+            });
+
+            if (answered === 0) {
+                document.getElementById('vak-result-title').textContent = i18n[currentLang].vak_default_title;
+                document.getElementById('vak-result-desc').textContent = i18n[currentLang].vak_default_desc;
+                return;
+            }
+
+            let dominant = 'V';
+            if (counts.A > counts[dominant]) dominant = 'A';
+            if (counts.K > counts[dominant]) dominant = 'K';
+
+            document.getElementById('vak-result-title').textContent = i18n[currentLang][`vak_res_${dominant}_title`];
+            document.getElementById('vak-result-desc').textContent = i18n[currentLang][`vak_res_${dominant}_desc`];
+        }
+
+        // --- 9. MODULE 5: THE 4 MEMORY SECRETS LAB ---
+        function switchMemoryTab(tabNum) {
+            activeMemoryTab = tabNum;
+            for (let i = 1; i <= 4; i++) {
+                const tabBtn = document.getElementById(`mem-tab-${i}`);
+                const panel = document.getElementById(`mem-panel-${i}`);
+                if (i === tabNum) {
+                    tabBtn.className = 'px-4 sm:px-6 py-3 rounded-2xl font-bold text-xs sm:text-sm transition-all bg-indigo-600 text-white shadow-lg shadow-indigo-500/25 flex items-center gap-2';
+                    panel.classList.remove('hidden');
+                    panel.classList.add('grid');
+                } else {
+                    tabBtn.className = 'px-4 sm:px-6 py-3 rounded-2xl font-bold text-xs sm:text-sm transition-all bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-800 flex items-center gap-2';
+                    panel.classList.add('hidden');
+                    panel.classList.remove('grid');
+                }
+            }
+        }
+
+        function createAssociationBridge() {
+            const newConcept = document.getElementById('assoc-new-input').value.trim();
+            const oldConcept = document.getElementById('assoc-old-input').value.trim();
+            if (!newConcept || !oldConcept) {
+                showToast(currentLang === 'ar' ? 'يرجى كتابة المعلومة الجديدة والشيء المألوف أولاً!' : 'Please enter both concepts first!');
+                return;
+            }
+            const container = document.getElementById('assoc-output-list');
+            const item = document.createElement('div');
+            item.className = 'p-3 rounded-xl bg-white dark:bg-slate-900 border border-emerald-500/40 flex items-center justify-between text-xs sm:text-sm font-bold';
+            item.innerHTML = `
+                <span class="text-indigo-600 dark:text-indigo-400">${newConcept}</span>
+                <span class="text-emerald-500 px-2"><i class="fa-solid fa-link"></i></span>
+                <span class="text-emerald-600 dark:text-emerald-400">${oldConcept}</span>
+            `;
+            container.prepend(item);
+            document.getElementById('assoc-new-input').value = '';
+            document.getElementById('assoc-old-input').value = '';
+            showToast(currentLang === 'ar' ? 'تم بناء الجسر العصبي بنجاح! 🔗' : 'Neural bridge created! 🔗');
+        }
+
+        function generateChunkExample() {
+            const p1 = Math.floor(1000 + Math.random() * 9000);
+            const p2 = Math.floor(1000 + Math.random() * 9000);
+            const p3 = Math.floor(1000 + Math.random() * 9000);
+            document.getElementById('chunk-raw-display').textContent = `${p1}${p2}${p3}`;
+            document.getElementById('chunk-grouped-display').innerHTML = `
+                <span class="px-3 py-1 rounded-lg bg-white dark:bg-slate-900 shadow-sm">${p1}</span>
+                <span class="px-3 py-1 rounded-lg bg-white dark:bg-slate-900 shadow-sm">${p2}</span>
+                <span class="px-3 py-1 rounded-lg bg-white dark:bg-slate-900 shadow-sm">${p3}</span>
+            `;
+        }
+
+        function generateSpacedSchedule() {
+            const topicInput = document.getElementById('sr-topic-input').value.trim();
+            const topic = topicInput || (currentLang === 'ar' ? 'الدرس الحالي' : 'Current Chapter');
+            const intervals = [
+                { days: 1, labelAr: 'المراجعة 1 (بعد يوم)', labelEn: 'Review 1 (+1 Day)' },
+                { days: 3, labelAr: 'المراجعة 2 (بعد 3 أيام)', labelEn: 'Review 2 (+3 Days)' },
+                { days: 7, labelAr: 'المراجعة 3 (بعد أسبوع)', labelEn: 'Review 3 (+7 Days)' },
+                { days: 14, labelAr: 'المراجعة 4 (بعد أسبوعين)', labelEn: 'Review 4 (+14 Days)' },
+                { days: 30, labelAr: 'المراجعة 5 (بعد شهر)', labelEn: 'Review 5 (+30 Days)' }
+            ];
+
+            const grid = document.getElementById('sr-schedule-grid');
+            grid.innerHTML = '';
+            const today = new Date();
+
+            intervals.forEach((inv, idx) => {
+                const targetDate = new Date(today);
+                targetDate.setDate(today.getDate() + inv.days);
+                const dateStr = targetDate.toLocaleDateString(currentLang === 'ar' ? 'ar-EG' : 'en-US', { month: 'short', day: 'numeric' });
+                const card = document.createElement('div');
+                card.className = 'p-3 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-center space-y-1';
+                card.innerHTML = `
+                    <div class="text-[11px] font-bold text-indigo-500">${currentLang === 'ar' ? inv.labelAr : inv.labelEn}</div>
+                    <div class="text-sm font-black text-slate-900 dark:text-white">${dateStr}</div>
+                    <div class="text-[10px] text-slate-400 truncate">${topic}</div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        function copySpacedSchedule() {
+            const topic = document.getElementById('sr-topic-input').value.trim() || (currentLang === 'ar' ? 'الدرس' : 'Study Topic');
+            const text = currentLang === 'ar'
+                ? `جدول التكرار المتباعد لـ (${topic}): بعد يوم، 3 أيام، 7 أيام، 14 يوماً، 30 يوماً.`
+                : `Spaced Repetition Schedule for (${topic}): +1 Day, +3 Days, +7 Days, +14 Days, +30 Days.`;
+
+            const tempInput = document.createElement('textarea');
+            tempInput.value = text;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+            showToast(currentLang === 'ar' ? 'تم نسخ جدول المراجعة المتباعدة بنجاح! 📋' : 'Spaced Repetition Schedule copied! 📋');
+        }
+
+        // --- 10. MODULE 6: BEGINNINGS & ENDINGS CURVE + SMART TIMER ---
+        function setCurveMode(mode) {
+            currentCurveMode = mode;
+            const marathonPath = document.getElementById('svg-curve-marathon');
+            const smartPath = document.getElementById('svg-curve-smart');
+            const smartDots = document.getElementById('svg-dots-smart');
+            const caption = document.getElementById('curve-caption');
+            const btnMarathon = document.getElementById('curve-btn-marathon');
+            const btnSmart = document.getElementById('curve-btn-smart');
+
+            if (mode === 'marathon') {
+                marathonPath.setAttribute('class', 'opacity-100 transition-all duration-500');
+                smartPath.setAttribute('class', 'opacity-20 transition-all duration-500');
+                smartDots.style.opacity = '0.2';
+                caption.className = 'text-xs sm:text-sm font-bold text-center text-rose-600 dark:text-rose-400 mt-2';
+                caption.textContent = i18n[currentLang].curve_marathon_caption;
+                btnMarathon.className = 'px-3 py-1.5 rounded-lg text-xs font-bold transition-all bg-rose-500 text-white shadow';
+                btnSmart.className = 'px-3 py-1.5 rounded-lg text-xs font-bold transition-all text-slate-600 dark:text-slate-300';
+            } else {
+                marathonPath.setAttribute('class', 'opacity-30 transition-all duration-500');
+                smartPath.setAttribute('class', 'opacity-100 transition-all duration-500');
+                smartDots.style.opacity = '1';
+                caption.className = 'text-xs sm:text-sm font-bold text-center text-emerald-600 dark:text-emerald-400 mt-2';
+                caption.textContent = i18n[currentLang].curve_smart_caption;
+                btnSmart.className = 'px-3 py-1.5 rounded-lg text-xs font-bold transition-all bg-emerald-500 text-white shadow';
+                btnMarathon.className = 'px-3 py-1.5 rounded-lg text-xs font-bold transition-all text-slate-600 dark:text-slate-300';
+            }
+        }
+
+        function setTimerPreset(minutes, mode) {
+            clearInterval(timerInterval);
+            isTimerRunning = false;
+            timerMode = mode;
+            timerTotalSeconds = minutes * 60;
+            timerRemainingSeconds = timerTotalSeconds;
+            updateTimerUI();
+        }
+
+        function toggleSmartTimer() {
+            if (isTimerRunning) {
+                clearInterval(timerInterval);
+                isTimerRunning = false;
+                updateTimerUI();
+                return;
+            }
+            isTimerRunning = true;
+            updateTimerUI();
+            timerInterval = setInterval(() => {
+                if (timerRemainingSeconds > 0) {
+                    timerRemainingSeconds--;
+                    updateTimerUI();
+                } else {
+                    clearInterval(timerInterval);
+                    isTimerRunning = false;
+                    updateTimerUI();
+                    showToast(currentLang === 'ar' ? 'انتهت الجلسة بنجاح! خذ استراحة قصيرة لتجديد الأكسجين 🔔' : 'Session complete! Take a short break to recharge 🔔');
+                }
+            }, 1000);
+        }
+
+        function resetSmartTimer() {
+            clearInterval(timerInterval);
+            isTimerRunning = false;
+            timerRemainingSeconds = timerTotalSeconds;
+            updateTimerUI();
+        }
+
+        function updateTimerUI() {
+            const mins = String(Math.floor(timerRemainingSeconds / 60)).padStart(2, '0');
+            const secs = String(timerRemainingSeconds % 60).padStart(2, '0');
+            document.getElementById('timer-display').textContent = `${mins}:${secs}`;
+
+            const circumference = 326.7;
+            const offset = circumference - (timerRemainingSeconds / timerTotalSeconds) * circumference;
+            document.getElementById('timer-progress-ring').style.strokeDashoffset = offset;
+
+            document.getElementById('timer-mode-label').textContent =
+                timerMode === 'study' ? i18n[currentLang].timer_mode_study : i18n[currentLang].timer_mode_break;
+            document.getElementById('timer-btn-text').textContent =
+                isTimerRunning ? i18n[currentLang].timer_pause : i18n[currentLang].timer_start;
+            document.getElementById('timer-btn-icon').className =
+                isTimerRunning ? 'fa-solid fa-pause' : 'fa-solid fa-play';
+        }
+
+        // --- 11. MODULE 7: WORRY LIST VAULT ---
+        function renderWorryList() {
+            const container = document.getElementById('worry-list-container');
+            container.innerHTML = '';
+
+            worryItems.forEach(item => {
+                const text = currentLang === 'ar' ? item.textAr : item.textEn;
+                const row = document.createElement('div');
+                row.className = 'p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-800/70 border border-slate-200/80 dark:border-slate-700/70 flex items-center justify-between gap-3';
+                row.innerHTML = `
+                    <div class="flex items-center gap-3">
+                        <input type="checkbox" ${item.done ? 'checked' : ''} onchange="toggleWorryDone(${item.id})" class="w-4 h-4 rounded text-indigo-600">
+                        <span class="text-xs sm:text-sm font-semibold ${item.done ? 'line-through text-slate-400' : 'text-slate-800 dark:text-slate-200'}">${text}</span>
+                    </div>
+                    <button onclick="removeWorryItem(${item.id})" class="text-slate-400 hover:text-rose-500 transition-colors text-xs px-2">
+                        <i class="fa-solid fa-trash-can"></i>
+                    </button>
+                `;
+                container.appendChild(row);
+            });
+
+            const lockText = document.getElementById('vault-lock-text');
+            const lockIcon = document.getElementById('vault-lock-icon');
+            const overlay = document.getElementById('vault-overlay');
+
+            if (isVaultLocked) {
+                container.classList.add('vault-locked');
+                overlay.classList.remove('hidden');
+                lockText.textContent = i18n[currentLang].vault_unlock_btn;
+                lockIcon.className = 'fa-solid fa-lock-open';
+            } else {
+                container.classList.remove('vault-locked');
+                overlay.classList.add('hidden');
+                lockText.textContent = i18n[currentLang].vault_lock_btn;
+                lockIcon.className = 'fa-solid fa-lock';
+            }
+        }
+
+        function addWorryItem() {
+            const input = document.getElementById('worry-input');
+            const val = input.value.trim();
+            if (!val) return;
+            worryItems.unshift({
+                id: Date.now(),
+                textAr: val,
+                textEn: val,
+                done: false
+            });
+            input.value = '';
+            renderWorryList();
+            showToast(currentLang === 'ar' ? 'تم تفريغ الفكرة من عقلك إلى الورقة بنجاح! 🧘‍♂️' : 'Thought dumped onto your Worry List! 🧘‍♂️');
+        }
+
+        function toggleWorryDone(id) {
+            const item = worryItems.find(w => w.id === id);
+            if (item) item.done = !item.done;
+            renderWorryList();
+        }
+
+        function removeWorryItem(id) {
+            worryItems = worryItems.filter(w => w.id !== id);
+            renderWorryList();
+        }
+
+        function toggleWorryVaultLock() {
+            isVaultLocked = !isVaultLocked;
+            renderWorryList();
+            showToast(
+                currentLang === 'ar'
+                    ? (isVaultLocked ? 'تم قفل الخزنة! ركز الآن في مذاكرتك بذهن صافي 🔒' : 'تم فتح الخزنة لمراجعة مهامك المؤجلة 🔓')
+                    : (isVaultLocked ? 'Worry Vault Locked! Focus with a clear mind 🔒' : 'Vault Unlocked 🔓')
+            );
+        }
+
+        // --- INITIALIZE ON LOAD ---
+        window.onload = function () {
+            updateStudySimulator();
+            setBrainState('harmony');
+            generateSpacedSchedule();
+            renderWorryList();
+            updateTimerUI();
+        };
+    </script>
+</body>
+</html>
